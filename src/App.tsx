@@ -8,6 +8,7 @@ import Product from "./pages/Product";
 import NewGuarantee from "./pages/NewGuarantee";
 import SelectAssets from "./pages/SelectAssets";
 import RiskAssessment from "./pages/RiskAssessment";
+import StructuredOutput from "./pages/StructuredOutput";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/product/new-guarantee" element={<NewGuarantee />} />
           <Route path="/product/new-guarantee/select-assets" element={<SelectAssets />} />
           <Route path="/product/new-guarantee/risk-assessment" element={<RiskAssessment />} />
+          <Route path="/product/new-guarantee/structured-output" element={<StructuredOutput />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
