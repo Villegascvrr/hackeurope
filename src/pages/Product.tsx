@@ -15,6 +15,8 @@ import {
   Menu,
   X,
   FlaskConical,
+  Home,
+  LogOut,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,6 +29,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, active: true, path: "/product" },
@@ -151,6 +160,23 @@ const Product = () => {
             </button>
           ))}
         </nav>
+
+        <div className="border-t border-[hsl(220,13%,91%)] px-3 py-3 space-y-0.5">
+          <button
+            onClick={() => navigate("/")}
+            className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)] transition-colors"
+          >
+            <Home className="h-4 w-4" />
+            Back to Home
+          </button>
+          <button
+            onClick={() => navigate("/")}
+            className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-red-600 hover:bg-red-50 transition-colors"
+          >
+            <LogOut className="h-4 w-4" />
+            Log Out
+          </button>
+        </div>
       </aside>
 
       {/* Main area */}
@@ -179,13 +205,28 @@ const Product = () => {
               <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-red-500" />
             </button>
             <div className="h-5 w-px bg-[hsl(220,13%,91%)]" />
-            <button className="flex items-center gap-2 text-sm text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] rounded-md px-2 py-1.5 transition-colors">
-              <div className="h-7 w-7 rounded-full bg-[hsl(220,20%,90%)] flex items-center justify-center text-xs font-medium text-[hsl(220,20%,30%)]">
-                CC
-              </div>
-              <span className="font-medium">Admin</span>
-              <ChevronDown className="h-3 w-3 text-[hsl(220,10%,46%)]" />
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center gap-2 text-sm text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] rounded-md px-2 py-1.5 transition-colors">
+                  <div className="h-7 w-7 rounded-full bg-[hsl(220,20%,90%)] flex items-center justify-center text-xs font-medium text-[hsl(220,20%,30%)]">
+                    CC
+                  </div>
+                  <span className="font-medium">Admin</span>
+                  <ChevronDown className="h-3 w-3 text-[hsl(220,10%,46%)]" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => navigate("/")}>
+                  <Home className="h-4 w-4 mr-2" />
+                  Back to Home
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={() => navigate("/")} className="text-red-600 focus:text-red-600">
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Log Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
 
