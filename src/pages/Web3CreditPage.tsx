@@ -37,7 +37,7 @@ const institutionalNav = [
 ];
 
 const digitalCreditNav = [
-  { label: "Web3 Credit", icon: Globe, path: "/product/web3-credit" },
+  { label: "Web3 Credit", icon: Globe, path: "/product/web3-credit/onboarding" },
 ];
 
 const bottomNav = [
