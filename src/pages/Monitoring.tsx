@@ -14,6 +14,7 @@ import {
   X,
   AlertTriangle,
   Download,
+  FlaskConical,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -38,11 +39,12 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/product" },
   { label: "New Guarantee", icon: FilePlus, path: "/product/new-guarantee" },
-  { label: "Portfolio", icon: Briefcase },
-  { label: "Risk Analysis", icon: BarChart3 },
-  { label: "Active Guarantees", icon: Shield },
+  { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
+  { label: "Risk Analysis", icon: BarChart3, path: "/product/risk-analysis" },
+  { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
   { label: "Monitoring", icon: Activity, active: true, path: "/product/monitoring" },
-  { label: "Settings", icon: Settings },
+  { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
+  { label: "Settings", icon: Settings, path: "/product/settings" },
 ];
 
 const exposureData = [

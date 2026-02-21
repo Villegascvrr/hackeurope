@@ -21,6 +21,10 @@ import StructuredOutput from "./pages/StructuredOutput";
 import Monitoring from "./pages/Monitoring";
 import SimulationLab from "./pages/SimulationLab";
 import Onboarding from "./pages/Onboarding";
+import Portfolio from "./pages/Portfolio";
+import RiskAnalysis from "./pages/RiskAnalysis";
+import ActiveGuarantees from "./pages/ActiveGuarantees";
+import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +46,10 @@ const App = () => (
           <Route path="/product/new-guarantee/structured-output" element={<StructuredOutput />} />
           <Route path="/product/monitoring" element={<Monitoring />} />
           <Route path="/product/simulation" element={<SimulationLab />} />
+          <Route path="/product/portfolio" element={<Portfolio />} />
+          <Route path="/product/risk-analysis" element={<RiskAnalysis />} />
+          <Route path="/product/active-guarantees" element={<ActiveGuarantees />} />
+          <Route path="/product/settings" element={<SettingsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

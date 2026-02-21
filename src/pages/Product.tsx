@@ -31,12 +31,12 @@ import { Badge } from "@/components/ui/badge";
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, active: true, path: "/product" },
   { label: "New Guarantee", icon: FilePlus, path: "/product/new-guarantee" },
-  { label: "Portfolio", icon: Briefcase },
-  { label: "Risk Analysis", icon: BarChart3 },
-  { label: "Active Guarantees", icon: Shield },
+  { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
+  { label: "Risk Analysis", icon: BarChart3, path: "/product/risk-analysis" },
+  { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
   { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
   { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
-  { label: "Settings", icon: Settings },
+  { label: "Settings", icon: Settings, path: "/product/settings" },
 ];
 
 const overviewCards = [
