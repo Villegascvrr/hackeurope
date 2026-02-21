@@ -22,9 +22,6 @@ const ClosingSection = () => {
                   Get Started <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button variant="outline" className="rounded-3xl border-2 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10" size="xl">
-                Schedule a Conversation
-              </Button>
             </div>
           </div>
         </ScrollReveal>
