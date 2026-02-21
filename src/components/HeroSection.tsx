@@ -20,7 +20,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease }}
         >
-          <h1 className="mb-2 max-w-4xl">One Risk Engine.</h1>
+          <h1 className="mb-2 max-w-4xl">AI Credit Infrastructure</h1>
         </motion.div>
 
         <motion.div
@@ -28,7 +28,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease, delay: 0.1 }}
         >
-          <h1 className="text-muted-foreground max-w-4xl mb-10">Two Capital Worlds.</h1>
+          <h1 className="text-muted-foreground max-w-4xl mb-10">for Solana Wallets.</h1>
         </motion.div>
 
         <motion.p
@@ -37,7 +37,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease, delay: 0.2 }}
         >
-          Unified underwriting infrastructure for traditional assets and on-chain capital.
+          Real-time on-chain behavior analysis and identity signals to generate dynamic trust scores and loan eligibility.
         </motion.p>
 
         <motion.div
@@ -48,19 +48,10 @@ const HeroSection = () => {
         >
           <Button className="rounded-3xl btn-brutal bg-primary text-primary-foreground" size="xl" asChild>
             <a href="/onboarding">
-              Enter Platform <ArrowRight className="ml-2 h-4 w-4" />
+              Launch Credit Engine <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </motion.div>
-
-        <motion.p
-          className="mt-10 text-sm text-muted-foreground"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.55, ease, delay: 0.45 }}
-        >
-          Unified credit infrastructure for institutional and digital-native capital.
-        </motion.p>
       </div>
     </section>
   );

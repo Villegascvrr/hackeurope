@@ -16,11 +16,11 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#problem" className="hover:text-foreground transition-colors duration-300">Problem</a>
             <a href="#solution" className="hover:text-foreground transition-colors duration-300">Solution</a>
-            <a href="#architecture" className="hover:text-foreground transition-colors duration-300">Architecture</a>
-            <a href="#governance" className="hover:text-foreground transition-colors duration-300">Governance</a>
+            <a href="#how-it-works" className="hover:text-foreground transition-colors duration-300">How It Works</a>
+            <a href="#tech-stack" className="hover:text-foreground transition-colors duration-300">Tech Stack</a>
           </div>
           <Button className="rounded-3xl btn-brutal bg-primary text-primary-foreground" size="sm" asChild>
-            <a href="/onboarding">Get Started</a>
+            <a href="/onboarding">Launch Engine</a>
           </Button>
         </div>
       </motion.nav>

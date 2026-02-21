@@ -1,24 +1,34 @@
 import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const steps = [
-  { label: "Wallet Intake", sublabel: "Solana wallet connection, transaction history extraction via Helius API" },
-  { label: "Behavioral Engine", sublabel: "Wallet age, volume analysis, liquidation history, and protocol interaction mapping" },
-  { label: "Identity Layer", sublabel: "Optional GitHub and LinkedIn verification for trust signal enrichment" },
-  { label: "AI Credit Decision", sublabel: "LLM-powered underwriting generating Trust Score and loan eligibility" },
+  {
+    label: "Connect Wallet",
+    sublabel: "We fetch wallet history via Solana RPC (Helius).",
+  },
+  {
+    label: "Behavioral Analysis",
+    sublabel: "We analyze wallet age, transaction volume, and liquidation history.",
+  },
+  {
+    label: "Identity Signals",
+    sublabel: "Optional GitHub / LinkedIn verification increases trust score.",
+  },
+  {
+    label: "AI Underwriting",
+    sublabel: "An LLM evaluates quantitative + qualitative signals to generate a Trust Score (300–850) and loan eligibility.",
+  },
 ];
 
-const SolutionSection = () => {
+const HowItWorksSection = () => {
   return (
-    <section id="solution" className="py-32 lg:py-44">
+    <section id="how-it-works" className="py-32 lg:py-44">
       <div className="container mx-auto px-6 max-w-6xl">
         <ScrollReveal>
           <div className="mb-20">
-            <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">The Solution</p>
-            <h2 className="mb-5 max-w-3xl">
-              AI-Powered Credit Infrastructure for Solana
-            </h2>
+            <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Process</p>
+            <h2 className="mb-5 max-w-3xl">How It Works</h2>
             <p className="text-muted-foreground text-lg max-w-2xl">
-              Collateral Core transforms on-chain wallet behavior into structured, AI-driven credit decisions.
+              From wallet connection to credit decision in four steps.
             </p>
           </div>
         </ScrollReveal>
@@ -39,4 +49,4 @@ const SolutionSection = () => {
   );
 };
 
-export default SolutionSection;
+export default HowItWorksSection;

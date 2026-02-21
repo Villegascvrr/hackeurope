@@ -2,19 +2,15 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
-  FilePlus,
-  Briefcase,
-  BarChart3,
-  Shield,
   Activity,
   Settings,
   Bell,
   ChevronDown,
   Menu,
   X,
-  FlaskConical,
   Home,
   LogOut,
+  Cpu,
   Globe,
 } from "lucide-react";
 import {
@@ -26,18 +22,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Web3Credit from "./Web3Credit";
 
-const institutionalNav = [
+const mainNav = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/product" },
-  { label: "New Guarantee", icon: FilePlus, path: "/product/new-guarantee" },
-  { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
-  { label: "Risk Analysis", icon: BarChart3, path: "/product/risk-analysis" },
-  { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
+  { label: "Credit Engine", icon: Cpu, path: "/product/web3-credit" },
   { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
-  { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
-];
-
-const digitalCreditNav = [
-  { label: "Web3 Credit", icon: Globe, path: "/product/web3-credit" },
 ];
 
 const bottomNav = [
@@ -50,21 +38,6 @@ const Web3CreditPage = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const isActive = (path: string) => location.pathname === path;
-
-  const renderNavItem = (item: { label: string; icon: any; path: string }) => (
-    <button
-      key={item.label}
-      onClick={() => navigate(item.path)}
-      className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
-        isActive(item.path)
-          ? "bg-[hsl(220,20%,95%)] text-[hsl(220,20%,10%)] font-medium"
-          : "text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)]"
-      }`}
-    >
-      <item.icon className="h-4 w-4" />
-      {item.label}
-    </button>
-  );
 
   return (
     <div className="min-h-screen bg-[hsl(220,20%,98%)] flex">
@@ -81,20 +54,33 @@ const Web3CreditPage = () => {
         </div>
 
         <nav className="flex-1 py-3 px-3 space-y-0.5">
-          {institutionalNav.map(renderNavItem)}
-
-          {/* Divider */}
-          <div className="pt-4 pb-2 px-3">
-            <p className="text-[10px] font-semibold text-[hsl(220,10%,46%)] uppercase tracking-widest">
-              Digital Credit Infrastructure
-            </p>
-          </div>
-
-          {digitalCreditNav.map(renderNavItem)}
+          {mainNav.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => navigate(item.path)}
+              className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
+                isActive(item.path)
+                  ? "bg-[hsl(220,20%,95%)] text-[hsl(220,20%,10%)] font-medium"
+                  : "text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)]"
+              }`}
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </button>
+          ))}
         </nav>
 
         <div className="px-3 py-1 space-y-0.5">
-          {bottomNav.map(renderNavItem)}
+          {bottomNav.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => navigate(item.path)}
+              className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)] transition-colors"
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </button>
+          ))}
         </div>
 
         <div className="border-t border-[hsl(220,13%,91%)] px-3 py-3 space-y-0.5">
@@ -117,7 +103,6 @@ const Web3CreditPage = () => {
 
       {/* Main area */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Top bar */}
         <header className="h-14 bg-white border-b border-[hsl(220,13%,91%)] flex items-center justify-between px-5 shrink-0">
           <div className="flex items-center gap-4">
             <button
@@ -127,15 +112,15 @@ const Web3CreditPage = () => {
               {sidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
             <div className="h-5 w-px bg-[hsl(220,13%,91%)]" />
-            <span className="text-sm text-[hsl(220,10%,46%)]">
-              Web3 Credit Module
-            </span>
+            <div className="flex items-center gap-2">
+              <Globe className="h-3.5 w-3.5 text-[hsl(245,72%,57%)]" />
+              <span className="text-xs font-medium text-[hsl(245,72%,57%)]">Solana Devnet</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button className="relative p-2 rounded-md text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] transition-colors">
               <Bell className="h-4 w-4" />
-              <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-red-500" />
             </button>
             <div className="h-5 w-px bg-[hsl(220,13%,91%)]" />
             <DropdownMenu>
@@ -163,7 +148,6 @@ const Web3CreditPage = () => {
           </div>
         </header>
 
-        {/* Content */}
         <main className="flex-1 p-6 overflow-auto">
           <div className="max-w-[1200px] mx-auto">
             <Web3Credit />

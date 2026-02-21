@@ -10,16 +10,16 @@ const ClosingSection = () => {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12">
             <div>
               <h2 className="mb-5 max-w-2xl">
-                Unified Credit Infrastructure Starts Here
+                On-Chain Credit Starts Here
               </h2>
               <p className="text-lg max-w-lg leading-relaxed opacity-80">
-                Whether you manage institutional treasury operations or on-chain capital, we'd like to hear from you.
+                Connect your Solana wallet and get an AI-generated credit profile in minutes.
               </p>
             </div>
-            <div className="shrink-0 flex flex-col gap-4">
+            <div className="shrink-0">
               <Button className="rounded-3xl bg-background text-foreground border-2 border-background hover:bg-background/90 btn-brutal" size="xl" asChild>
                 <a href="/onboarding">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  Launch Credit Engine <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
             </div>
