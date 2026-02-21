@@ -15,8 +15,8 @@ const ClosingSection = () => {
         </div>
         <div className="shrink-0 flex flex-col gap-3">
           <Button className="rounded-full" size="xl" asChild>
-            <a href="/product">
-              View the Product <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="/onboarding">
+              Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
           <Button variant="outline" className="rounded-full" size="xl">
