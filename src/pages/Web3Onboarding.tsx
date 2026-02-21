@@ -325,18 +325,18 @@ const Web3Onboarding = () => {
               </div>
 
               <div className="flex items-center gap-3 pt-2">
-                <Button
-                  onClick={() => navigate("/product/web3-credit/dashboard")}
+                  <Button
+                  onClick={() => navigate("/product")}
                   className="h-11 px-8"
                 >
-                  Go to Credit Dashboard <ArrowRight className="ml-2 w-4 h-4" />
+                  Go to Dashboard <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
                 <Button
                   variant="ghost"
                   className="h-11 text-muted-foreground"
-                  onClick={() => navigate("/product")}
+                  onClick={() => navigate("/product/risk-signals")}
                 >
-                  Return to Dashboard
+                  View Risk Signals
                 </Button>
               </div>
             </div>

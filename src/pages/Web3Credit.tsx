@@ -11,7 +11,7 @@ const Web3Credit = () => {
 
   useEffect(() => {
     if (!profile) {
-      navigate("/product/web3-credit/onboarding", { replace: true });
+      navigate("/product/credit-engine", { replace: true });
     }
   }, [profile, navigate]);
 
@@ -49,9 +49,7 @@ const Web3Credit = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card className="border-border shadow-none">
           <CardHeader className="pb-2 pt-4 px-4">
-            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-              Wallet Status
-            </CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Wallet Status</CardTitle>
           </CardHeader>
           <CardContent className="px-4 pb-4 pt-0">
             <span className="text-2xl font-semibold text-emerald-600">Connected</span>
@@ -59,19 +57,15 @@ const Web3Credit = () => {
         </Card>
         <Card className="border-border shadow-none">
           <CardHeader className="pb-2 pt-4 px-4">
-            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-              Trust Score
-            </CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Trust Score</CardTitle>
           </CardHeader>
           <CardContent className="px-4 pb-4 pt-0">
-            <span className="text-2xl font-semibold text-primary">{profile.trustScore} / 1000</span>
+            <span className="text-2xl font-semibold text-primary">{profile.trustScore} / 850</span>
           </CardContent>
         </Card>
         <Card className="border-border shadow-none">
           <CardHeader className="pb-2 pt-4 px-4">
-            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-              Max Eligible Loan
-            </CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Max Eligible Loan</CardTitle>
           </CardHeader>
           <CardContent className="px-4 pb-4 pt-0">
             <span className="text-2xl font-semibold text-foreground">${profile.maxLoan.toLocaleString()} USDC</span>
@@ -79,9 +73,7 @@ const Web3Credit = () => {
         </Card>
         <Card className="border-border shadow-none">
           <CardHeader className="pb-2 pt-4 px-4">
-            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-              Network
-            </CardTitle>
+            <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Network</CardTitle>
           </CardHeader>
           <CardContent className="px-4 pb-4 pt-0">
             <span className="text-2xl font-semibold text-foreground">Solana</span>
@@ -91,7 +83,6 @@ const Web3Credit = () => {
 
       {/* Detail Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Wallet Details */}
         <Card className="border-border shadow-none">
           <CardHeader className="px-5 py-4 border-b border-border">
             <CardTitle className="text-sm font-semibold text-foreground">Wallet Details</CardTitle>
@@ -111,7 +102,6 @@ const Web3Credit = () => {
           </CardContent>
         </Card>
 
-        {/* Risk Flags */}
         <Card className="border-border shadow-none">
           <CardHeader className="px-5 py-4 border-b border-border">
             <CardTitle className="text-sm font-semibold text-foreground">Risk Flags</CardTitle>
@@ -125,21 +115,14 @@ const Web3Credit = () => {
               <div key={flag.label} className="flex items-center justify-between px-5 py-3 border-b border-border last:border-0">
                 <span className="text-sm text-muted-foreground">{flag.label}</span>
                 <div className="flex items-center gap-2">
-                  <span className={`text-sm font-medium ${flag.ok ? "text-emerald-600" : "text-red-600"}`}>
-                    {flag.value}
-                  </span>
-                  {flag.ok ? (
-                    <Check className="h-3.5 w-3.5 text-emerald-600" />
-                  ) : (
-                    <XIcon className="h-3.5 w-3.5 text-red-600" />
-                  )}
+                  <span className={`text-sm font-medium ${flag.ok ? "text-emerald-600" : "text-red-600"}`}>{flag.value}</span>
+                  {flag.ok ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <XIcon className="h-3.5 w-3.5 text-red-600" />}
                 </div>
               </div>
             ))}
           </CardContent>
         </Card>
 
-        {/* Identity Signals */}
         <Card className="border-border shadow-none">
           <CardHeader className="px-5 py-4 border-b border-border">
             <CardTitle className="text-sm font-semibold text-foreground">Identity Signals</CardTitle>
@@ -155,31 +138,26 @@ const Web3Credit = () => {
                   <span className={`text-sm font-medium ${signal.verified ? "text-foreground" : "text-muted-foreground"}`}>
                     {signal.verified ? "Verified" : "Not provided"}
                   </span>
-                  {signal.verified ? (
-                    <Check className="h-3.5 w-3.5 text-emerald-600" />
-                  ) : (
-                    <div className="h-3.5 w-3.5" />
-                  )}
+                  {signal.verified ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <div className="h-3.5 w-3.5" />}
                 </div>
               </div>
             ))}
           </CardContent>
         </Card>
 
-        {/* Info Panel */}
         <Card className="border-border shadow-none bg-muted/50">
           <CardContent className="p-5">
             <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2">
-              Bridging Traditional and Digital Credit Infrastructure
+              AI Credit Infrastructure
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Collateral Core extends its underwriting framework to digital-native capital markets
-              by evaluating on-chain behavior and identity signals in real time.
+              TrustScore.sol evaluates on-chain behavior and identity signals in real time
+              to generate dynamic trust scores and credit eligibility for Solana wallets.
             </p>
             <Button
               variant="ghost"
               className="mt-4 text-sm font-medium text-foreground px-0"
-              onClick={() => navigate("/product/web3-credit/onboarding")}
+              onClick={() => navigate("/product/credit-engine")}
             >
               Run New Assessment <ArrowRight className="ml-1 h-3.5 w-3.5" />
             </Button>
