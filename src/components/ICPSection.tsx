@@ -1,13 +1,14 @@
 const industries = [
   "Construction & engineering",
   "Event & production operators",
-  "Growth-stage companies with active treasury",
+  "Growth-stage companies with active treasury functions",
 ];
 
 const criteria = [
-  "Manage €1M+ in invested treasury assets",
-  "Regularly post temporary guarantees or deposits",
-  "Optimize capital allocation actively",
+  "Manage €1M+ in invested financial assets",
+  "Actively optimize treasury allocation",
+  "Regularly post temporary guarantees or security deposits",
+  "Require structured, compliant capital deployment",
 ];
 
 const ICPSection = () => {
@@ -17,9 +18,9 @@ const ICPSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
             <p className="text-xs font-medium text-muted-foreground mb-3 tracking-widest uppercase">Target Profile</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Who This Is Designed For</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Built for Institutional Treasury Operations</h2>
             <p className="text-muted-foreground leading-relaxed">
-              Mid-market European companies that require structured collateral solutions for temporary capital obligations.
+              Collateral Core is designed for mid-market companies that manage active investment portfolios and require structured collateral solutions.
             </p>
           </div>
 
@@ -51,7 +52,7 @@ const ICPSection = () => {
         </div>
 
         <div className="border-t border-border mt-16 pt-8">
-          <p className="text-sm text-muted-foreground">Not retail. Not lending. Institutional-grade collateral infrastructure.</p>
+          <p className="text-sm text-muted-foreground">This is not a lending platform. It is collateral infrastructure.</p>
         </div>
       </div>
     </section>

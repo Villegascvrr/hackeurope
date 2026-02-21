@@ -1,21 +1,21 @@
 import { ArrowDown } from "lucide-react";
 
-const agents = [
+const layers = [
   { label: "Portfolio Intake Layer", desc: null },
-  { label: "Agent 1 — Asset Risk", desc: "Volatility, beta, max drawdown" },
-  { label: "Agent 2 — Market Regime Detection", desc: "Trend & stress signals" },
-  { label: "Agent 3 — Liquidity & Compliance", desc: "Constraints enforcement" },
-  { label: "Decision Engine", desc: "Dynamic collateral ratio" },
-  { label: "Guarantee Output Layer", desc: null },
+  { label: "Asset Risk Modeling", desc: "Volatility, beta, max drawdown" },
+  { label: "Market & Regime Analysis", desc: "Trend classification & stress signals" },
+  { label: "Liquidity & Constraint Evaluation", desc: "Compliance enforcement" },
+  { label: "Dynamic Collateral Ratio Engine", desc: "Threshold computation" },
+  { label: "Structured Guarantee Output", desc: null },
 ];
 
 const capabilities = [
-  "Real-time asset valuation",
+  "Real-time asset valuation across instruments",
   "Volatility-adjusted haircut modeling",
-  "Correlation matrix analysis",
+  "Correlation-based risk aggregation",
   "Stress scenario simulation",
   "Automated margin trigger logic",
-  "Rule-based decision enforcement",
+  "Rule-based collateral enforcement",
 ];
 
 const TechArchitectureSection = () => {
@@ -25,30 +25,28 @@ const TechArchitectureSection = () => {
         <div className="mb-16">
           <p className="text-xs font-medium text-muted-foreground mb-3 tracking-widest uppercase">Architecture</p>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Multi-Agent Collateral Risk Engine
+            Quantitative Multi-Layer Risk Engine
           </h2>
           <p className="text-muted-foreground max-w-2xl">
-            Quantitative risk modeling powering structured guarantees in real time.
+            Designed as financial infrastructure, not as a front-end lending application.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Diagram */}
           <div className="flex flex-col items-center gap-0">
-            {agents.map((agent, i) => (
-              <div key={agent.label} className="flex flex-col items-center w-full max-w-xs">
+            {layers.map((layer, i) => (
+              <div key={layer.label} className="flex flex-col items-center w-full max-w-xs">
                 <div className="rounded-lg border border-[hsl(var(--dark-border))] p-4 text-center w-full bg-[hsl(var(--dark-bg))]">
-                  <p className="text-sm font-semibold">{agent.label}</p>
-                  {agent.desc && <p className="text-xs text-muted-foreground mt-1">{agent.desc}</p>}
+                  <p className="text-sm font-semibold">{layer.label}</p>
+                  {layer.desc && <p className="text-xs text-muted-foreground mt-1">{layer.desc}</p>}
                 </div>
-                {i < agents.length - 1 && (
+                {i < layers.length - 1 && (
                   <ArrowDown className="h-4 w-4 text-primary my-2 shrink-0" />
                 )}
               </div>
             ))}
           </div>
 
-          {/* Capabilities */}
           <div className="space-y-0">
             {capabilities.map((item, i) => (
               <div key={i} className="flex items-start gap-4 py-4 border-b border-[hsl(var(--dark-border))]">

@@ -1,8 +1,8 @@
 const stats = [
-  { value: "€20k–€300k+", label: "locked per deposit", desc: "Cash trapped in temporary requirements" },
-  { value: "2–4 weeks", label: "bank guarantee approval", desc: "Too slow for project timelines" },
-  { value: "3–6 months", label: "typical lock period", desc: "Assets sold at the wrong time" },
-  { value: "0%", label: "return on locked cash", desc: "Dead capital, zero productivity" },
+  { value: "€20k–€300k+", label: "Locked per deposit" },
+  { value: "3–6 months", label: "Typical lock period" },
+  { value: "2–4 weeks", label: "Traditional bank approval" },
+  { value: "0%", label: "Return on immobilized capital" },
 ];
 
 const ProblemSection = () => {
@@ -22,14 +22,13 @@ const ProblemSection = () => {
           {stats.map((item, i) => (
             <div key={i} className="border-b border-[hsl(var(--dark-border))] pb-8">
               <p className="text-3xl sm:text-4xl font-bold text-primary mb-2">{item.value}</p>
-              <p className="font-semibold mb-1">{item.label}</p>
-              <p className="text-sm text-muted-foreground">{item.desc}</p>
+              <p className="font-semibold">{item.label}</p>
             </div>
           ))}
         </div>
 
         <div className="border-t border-[hsl(var(--dark-border))] mt-16 pt-8">
-          <p className="text-sm font-medium">Deposits are mandatory. Inefficiency is not.</p>
+          <p className="text-sm font-medium">Mandatory deposits should not distort capital allocation decisions.</p>
         </div>
       </div>
     </section>
