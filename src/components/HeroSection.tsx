@@ -13,18 +13,13 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-          Institutional asset-backed underwriting and AI-native on-chain credit scoring — unified under a single infrastructure layer.
+          Unified underwriting infrastructure for traditional assets and on-chain capital.
         </p>
 
         <div className="flex flex-wrap gap-4">
           <Button className="rounded-full" size="xl" asChild>
             <a href="/onboarding">
-              Enter Institutional Engine <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-          </Button>
-          <Button variant="outline" className="rounded-full" size="xl" asChild>
-            <a href="/product/web3-credit">
-              Enter On-Chain Credit <ArrowRight className="ml-2 h-4 w-4" />
+              Enter Platform <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
         </div>
