@@ -13,6 +13,7 @@ const ScrollToTop = () => {
   }, [pathname]);
   return null;
 };
+
 import Index from "./pages/Index";
 import Product from "./pages/Product";
 import Monitoring from "./pages/Monitoring";
@@ -20,6 +21,8 @@ import Onboarding from "./pages/Onboarding";
 import SettingsPage from "./pages/SettingsPage";
 import Web3CreditPage from "./pages/Web3CreditPage";
 import Web3Onboarding from "./pages/Web3Onboarding";
+import ActiveLoan from "./pages/ActiveLoan";
+import RiskSignals from "./pages/RiskSignals";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +39,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/product" element={<Product />} />
+            <Route path="/product/credit-engine" element={<Web3Onboarding />} />
+            <Route path="/product/active-loan" element={<ActiveLoan />} />
+            <Route path="/product/risk-signals" element={<RiskSignals />} />
             <Route path="/product/monitoring" element={<Monitoring />} />
             <Route path="/product/settings" element={<SettingsPage />} />
             <Route path="/product/web3-credit" element={<Web3CreditPage />} />
