@@ -20,9 +20,12 @@ import {
   Building2,
   Link2,
   PenLine,
+  Landmark,
+  Cpu,
 } from "lucide-react";
 
 const STEPS = [
+  "Credit Framework",
   "Welcome",
   "How It Works",
   "What You'll Need",
@@ -33,6 +36,7 @@ const STEPS = [
 
 const Onboarding = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [selectedFramework, setSelectedFramework] = useState<string | null>(null);
   const [companyName, setCompanyName] = useState("");
   const [industry, setIndustry] = useState("");
   const [jurisdiction, setJurisdiction] = useState("");
@@ -47,6 +51,15 @@ const Onboarding = () => {
   const prev = () => {
     setCurrentStep((s) => Math.max(s - 1, 0));
     window.scrollTo(0, 0);
+  };
+
+  const handleFrameworkSelect = (framework: string) => {
+    setSelectedFramework(framework);
+    if (framework === "onchain") {
+      navigate("/product/web3-credit");
+    } else {
+      next();
+    }
   };
 
   return (
@@ -97,8 +110,62 @@ const Onboarding = () => {
       {/* Content */}
       <div className="flex-1 flex items-center justify-center px-6 py-16">
         <div className="w-full max-w-xl">
-          {/* Step 1 — Welcome */}
+          {/* Step 0 — Select Credit Framework */}
           {currentStep === 0 && (
+            <div className="space-y-8">
+              <div className="space-y-3">
+                <h1 className="text-3xl font-semibold text-foreground tracking-tight">
+                  Select Credit Framework
+                </h1>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Choose the capital environment you want to evaluate.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <button
+                  onClick={() => handleFrameworkSelect("institutional")}
+                  className="flex flex-col items-start gap-4 p-6 rounded-lg border border-border bg-card hover:border-foreground/20 transition-colors text-left"
+                >
+                  <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center">
+                    <Landmark className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <span className="text-sm font-medium text-foreground">
+                      Institutional Asset-Backed Credit
+                    </span>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Structured collateral underwriting for treasury-managed portfolios.
+                    </p>
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => handleFrameworkSelect("onchain")}
+                  className="flex flex-col items-start gap-4 p-6 rounded-lg border border-border bg-card hover:border-foreground/20 transition-colors text-left"
+                >
+                  <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center">
+                    <Cpu className="w-5 h-5 text-muted-foreground" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <span className="text-sm font-medium text-foreground">
+                      On-Chain AI Credit
+                    </span>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Wallet-level credit scoring powered by behavioral and identity analysis.
+                    </p>
+                  </div>
+                </button>
+              </div>
+
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Both frameworks operate under the same risk architecture and monitoring principles.
+              </p>
+            </div>
+          )}
+
+          {/* Step 1 — Welcome */}
+          {currentStep === 1 && (
             <div className="space-y-8">
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground tracking-tight">
@@ -118,26 +185,15 @@ const Onboarding = () => {
                   Get Started
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-                <Button
-                  variant="ghost"
-                  className="h-11 text-muted-foreground"
-                  onClick={() => navigate("/")}
-                >
-                  View Platform Overview
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="h-11 text-muted-foreground"
-                  onClick={() => navigate("/")}
-                >
-                  ← Back to Home
+                <Button variant="ghost" className="h-11 text-muted-foreground" onClick={prev}>
+                  Back
                 </Button>
               </div>
             </div>
           )}
 
           {/* Step 2 — How It Works */}
-          {currentStep === 1 && (
+          {currentStep === 2 && (
             <div className="space-y-8">
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground tracking-tight">
@@ -186,7 +242,7 @@ const Onboarding = () => {
           )}
 
           {/* Step 3 — What You'll Need */}
-          {currentStep === 2 && (
+          {currentStep === 3 && (
             <div className="space-y-8">
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground tracking-tight">
@@ -230,7 +286,7 @@ const Onboarding = () => {
           )}
 
           {/* Step 4 — Company Setup */}
-          {currentStep === 3 && (
+          {currentStep === 4 && (
             <div className="space-y-8">
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground tracking-tight">
@@ -315,7 +371,7 @@ const Onboarding = () => {
           )}
 
           {/* Step 5 — Portfolio Setup */}
-          {currentStep === 4 && (
+          {currentStep === 5 && (
             <div className="space-y-8">
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground tracking-tight">
@@ -323,7 +379,7 @@ const Onboarding = () => {
                 </h1>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button className="flex flex-col items-center gap-3 p-6 rounded-lg border border-border bg-card hover:border-primary/40 transition-colors text-center">
+                <button className="flex flex-col items-center gap-3 p-6 rounded-lg border border-border bg-card hover:border-foreground/20 transition-colors text-center">
                   <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center">
                     <Link2 className="w-5 h-5 text-muted-foreground" />
                   </div>
@@ -331,7 +387,7 @@ const Onboarding = () => {
                     Connect Broker
                   </span>
                 </button>
-                <button className="flex flex-col items-center gap-3 p-6 rounded-lg border border-border bg-card hover:border-primary/40 transition-colors text-center">
+                <button className="flex flex-col items-center gap-3 p-6 rounded-lg border border-border bg-card hover:border-foreground/20 transition-colors text-center">
                   <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center">
                     <PenLine className="w-5 h-5 text-muted-foreground" />
                   </div>
@@ -357,7 +413,7 @@ const Onboarding = () => {
           )}
 
           {/* Step 6 — First Guarantee */}
-          {currentStep === 5 && (
+          {currentStep === 6 && (
             <div className="space-y-8">
               <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground tracking-tight">
