@@ -7,6 +7,7 @@ import UnifiedArchitectureSection from "@/components/UnifiedArchitectureSection"
 import ICPSection from "@/components/ICPSection";
 import SecuritySection from "@/components/SecuritySection";
 import CapitalEfficiencySection from "@/components/CapitalEfficiencySection";
+import RiskFrameworkSection from "@/components/RiskFrameworkSection";
 import VisionSection from "@/components/VisionSection";
 import ClosingSection from "@/components/ClosingSection";
 import Footer from "@/components/Footer";
@@ -23,6 +24,7 @@ const Index = () => {
       <ICPSection />
       <SecuritySection />
       <CapitalEfficiencySection />
+      <RiskFrameworkSection />
       <VisionSection />
       <ClosingSection />
       <Footer />
