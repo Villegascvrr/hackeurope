@@ -31,6 +31,7 @@ const SecuritySection = () => {
               ))}
             </div>
             <p className="text-sm text-muted-foreground mt-6">Risk management is embedded at the infrastructure layer.</p>
+            <p className="text-sm text-muted-foreground mt-3">Risk management principles apply consistently across traditional and on-chain credit issuance.</p>
           </div>
         </div>
       </div>

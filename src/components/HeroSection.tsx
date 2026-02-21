@@ -6,27 +6,29 @@ const HeroSection = () => {
     <section className="pt-32 pb-24 lg:pt-44 lg:pb-32">
       <div className="container mx-auto px-6 max-w-5xl">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6">
-          Unlock Capital Efficiency{" "}
-          <span className="text-primary">Without Liquidating Assets</span>
+          Rebuilding Credit Infrastructure{" "}
+          <span className="text-primary">for Traditional and Digital Capital</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-          Structured, real-time asset-backed guarantees powered by a quantitative collateral risk engine.
+          Collateral Core provides structured asset-backed guarantees for institutions and AI-powered on-chain credit scoring for digital-native markets.
         </p>
 
         <div className="flex flex-wrap gap-4">
           <Button className="rounded-full" size="xl" asChild>
             <a href="/onboarding">
-              Start Structuring <ArrowRight className="ml-2 h-4 w-4" />
+              Explore Institutional Infrastructure <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
-          <Button variant="outline" className="rounded-full" size="xl">
-            View Architecture
+          <Button variant="outline" className="rounded-full" size="xl" asChild>
+            <a href="/product/web3-credit">
+              Explore On-Chain Credit
+            </a>
           </Button>
         </div>
 
         <p className="mt-8 text-sm text-muted-foreground">
-          Designed for mid-market treasury teams managing active investment portfolios.
+          Unified credit infrastructure for mid-market treasury teams and digital-native capital participants.
         </p>
       </div>
     </section>
