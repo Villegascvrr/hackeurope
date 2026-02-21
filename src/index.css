@@ -180,41 +180,61 @@
   }
 }
 
-/* Liquid Gradient Background */
-.liquid-gradient {
-  opacity: 0.22;
-  filter: blur(120px);
-  background:
-    radial-gradient(ellipse 80% 60% at 30% 40%, hsl(245 72% 57%) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 80% at 70% 30%, hsl(260 55% 65%) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 70% at 55% 70%, hsl(280 45% 70%) 0%, transparent 50%),
-    radial-gradient(ellipse 90% 50% at 20% 80%, hsl(220 50% 60%) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 90% at 80% 60%, hsl(245 40% 75%) 0%, transparent 50%);
-  background-size: 180% 180%;
-  animation: liquidFlow 25s ease-in-out infinite;
+/* Animated Mesh Gradient */
+.mesh-blob {
+  opacity: 0.18;
+  background-size: 200% 200%;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-@keyframes liquidFlow {
-  0% {
-    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%, 100% 50%;
-    transform: scale(1) rotate(0deg);
-  }
-  25% {
-    background-position: 30% 20%, 70% 40%, 20% 60%, 50% 30%, 80% 70%;
-    transform: scale(1.05) rotate(1deg);
-  }
-  50% {
-    background-position: 60% 40%, 40% 70%, 80% 30%, 30% 80%, 50% 20%;
-    transform: scale(1.02) rotate(-1deg);
-  }
-  75% {
-    background-position: 40% 60%, 20% 30%, 60% 80%, 70% 20%, 30% 60%;
-    transform: scale(1.06) rotate(0.5deg);
-  }
-  100% {
-    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 50%, 100% 50%;
-    transform: scale(1) rotate(0deg);
-  }
+.mesh-blob-1 {
+  background: radial-gradient(ellipse 60% 50% at 20% 30%, hsl(245 72% 57% / 1) 0%, transparent 70%);
+  animation: meshMove1 12s infinite alternate ease-in-out;
+}
+
+.mesh-blob-2 {
+  background: radial-gradient(ellipse 50% 60% at 75% 25%, hsl(220 60% 55% / 1) 0%, transparent 70%);
+  animation: meshMove2 15s infinite alternate ease-in-out;
+}
+
+.mesh-blob-3 {
+  background: radial-gradient(ellipse 55% 45% at 60% 70%, hsl(280 50% 55% / 1) 0%, transparent 70%);
+  animation: meshMove3 18s infinite alternate ease-in-out;
+}
+
+.mesh-blob-4 {
+  background: radial-gradient(ellipse 45% 55% at 35% 60%, hsl(40 70% 60% / 1) 0%, transparent 65%);
+  animation: meshMove4 14s infinite alternate ease-in-out;
+}
+
+@keyframes meshMove1 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(15%, -10%) scale(1.1); }
+  66%  { transform: translate(-10%, 15%) scale(0.95); }
+  100% { transform: translate(5%, -5%) scale(1.05); }
+}
+
+@keyframes meshMove2 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(-20%, 10%) scale(1.08); }
+  66%  { transform: translate(10%, -15%) scale(0.92); }
+  100% { transform: translate(-5%, 8%) scale(1.03); }
+}
+
+@keyframes meshMove3 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(10%, 20%) scale(0.95); }
+  66%  { transform: translate(-15%, -10%) scale(1.1); }
+  100% { transform: translate(8%, -12%) scale(1); }
+}
+
+@keyframes meshMove4 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(-8%, -15%) scale(1.06); }
+  66%  { transform: translate(12%, 8%) scale(0.97); }
+  100% { transform: translate(-3%, 10%) scale(1.02); }
 }
 
 /* Reduce motion preference */
