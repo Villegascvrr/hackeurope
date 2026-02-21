@@ -14,7 +14,7 @@ const HeroSection = () => {
     <section ref={sectionRef} className="pt-36 pb-28 lg:pt-52 lg:pb-40 relative overflow-hidden">
       <MeshGradientHero />
 
-      <div className="container mx-auto px-6 max-w-6xl relative">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

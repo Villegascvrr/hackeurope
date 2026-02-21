@@ -37,7 +37,7 @@ const MeshGradientHero = () => {
   }, [prefersReducedMotion]);
 
   return (
-    <div className="absolute inset-0 overflow-hidden" style={{ zIndex: -10 }}>
+    <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
       <div
         id="mesh-gradient-layer"
         className="absolute inset-[-20%] will-change-transform"
