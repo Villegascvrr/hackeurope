@@ -25,6 +25,7 @@ import Portfolio from "./pages/Portfolio";
 import RiskAnalysis from "./pages/RiskAnalysis";
 import ActiveGuarantees from "./pages/ActiveGuarantees";
 import SettingsPage from "./pages/SettingsPage";
+import Web3CreditPage from "./pages/Web3CreditPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/product/risk-analysis" element={<RiskAnalysis />} />
           <Route path="/product/active-guarantees" element={<ActiveGuarantees />} />
           <Route path="/product/settings" element={<SettingsPage />} />
+          <Route path="/product/web3-credit" element={<Web3CreditPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

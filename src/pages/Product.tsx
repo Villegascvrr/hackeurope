@@ -37,7 +37,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const navItems = [
+const institutionalNav = [
   { label: "Dashboard", icon: LayoutDashboard, active: true, path: "/product" },
   { label: "New Guarantee", icon: FilePlus, path: "/product/new-guarantee" },
   { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
@@ -45,6 +45,13 @@ const navItems = [
   { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
   { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
   { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
+];
+
+const digitalCreditNav = [
+  { label: "Web3 Credit", icon: BarChart3, path: "/product/web3-credit" },
+];
+
+const bottomNav = [
   { label: "Settings", icon: Settings, path: "/product/settings" },
 ];
 
@@ -145,7 +152,7 @@ const Product = () => {
         </div>
 
         <nav className="flex-1 py-3 px-3 space-y-0.5">
-          {navItems.map((item) => (
+          {institutionalNav.map((item) => (
             <button
               key={item.label}
               onClick={() => item.path && navigate(item.path)}
@@ -159,7 +166,38 @@ const Product = () => {
               {item.label}
             </button>
           ))}
+
+          {/* Section divider */}
+          <div className="pt-4 pb-2 px-3">
+            <p className="text-[10px] font-semibold text-[hsl(220,10%,46%)] uppercase tracking-widest">
+              Digital Credit Infrastructure
+            </p>
+          </div>
+
+          {digitalCreditNav.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => item.path && navigate(item.path)}
+              className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)] transition-colors"
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </button>
+          ))}
         </nav>
+
+        <div className="px-3 py-1 space-y-0.5">
+          {bottomNav.map((item) => (
+            <button
+              key={item.label}
+              onClick={() => item.path && navigate(item.path)}
+              className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)] transition-colors"
+            >
+              <item.icon className="h-4 w-4" />
+              {item.label}
+            </button>
+          ))}
+        </div>
 
         <div className="border-t border-[hsl(220,13%,91%)] px-3 py-3 space-y-0.5">
           <button
@@ -360,6 +398,56 @@ const Product = () => {
                 </Table>
               </CardContent>
             </Card>
+
+            {/* Credit Infrastructure Modules */}
+            <div className="space-y-4">
+              <h2 className="text-sm font-semibold text-[hsl(220,20%,10%)]">
+                Credit Infrastructure Modules
+              </h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                {/* Card 1: Asset-Backed Guarantees */}
+                <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+                  <CardContent className="p-6 flex flex-col justify-between h-full">
+                    <div>
+                      <h3 className="text-base font-semibold text-[hsl(220,20%,10%)] mb-1">
+                        Asset-Backed Guarantees
+                      </h3>
+                      <p className="text-sm text-[hsl(220,10%,46%)] leading-relaxed">
+                        Structured collateral underwriting for institutional treasury.
+                      </p>
+                    </div>
+                    <Button
+                      onClick={() => navigate("/product/new-guarantee")}
+                      variant="ghost"
+                      className="mt-4 self-start text-sm font-medium text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] px-0"
+                    >
+                      Enter Module <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Card 2: AI On-Chain Credit */}
+                <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+                  <CardContent className="p-6 flex flex-col justify-between h-full">
+                    <div>
+                      <h3 className="text-base font-semibold text-[hsl(220,20%,10%)] mb-1">
+                        AI On-Chain Credit (TrustScore.sol)
+                      </h3>
+                      <p className="text-sm text-[hsl(220,10%,46%)] leading-relaxed">
+                        Real-time Solana wallet credit underwriting powered by AI.
+                      </p>
+                    </div>
+                    <Button
+                      onClick={() => navigate("/product/web3-credit")}
+                      variant="ghost"
+                      className="mt-4 self-start text-sm font-medium text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] px-0"
+                    >
+                      Enter Module <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
 
             {/* Risk Engine Summary */}
             <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
