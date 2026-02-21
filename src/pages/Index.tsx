@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
-import ICPSection from "@/components/ICPSection";
 import SolutionSection from "@/components/SolutionSection";
-import TechArchitectureSection from "@/components/TechArchitectureSection";
+import TwoEnginesSection from "@/components/TwoEnginesSection";
+import UnifiedArchitectureSection from "@/components/UnifiedArchitectureSection";
+import ICPSection from "@/components/ICPSection";
 import SecuritySection from "@/components/SecuritySection";
 import CapitalEfficiencySection from "@/components/CapitalEfficiencySection";
+import VisionSection from "@/components/VisionSection";
 import ClosingSection from "@/components/ClosingSection";
 import Footer from "@/components/Footer";
 
@@ -15,11 +17,13 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <ProblemSection />
-      <ICPSection />
       <SolutionSection />
-      <TechArchitectureSection />
+      <TwoEnginesSection />
+      <UnifiedArchitectureSection />
+      <ICPSection />
       <SecuritySection />
       <CapitalEfficiencySection />
+      <VisionSection />
       <ClosingSection />
       <Footer />
     </div>
