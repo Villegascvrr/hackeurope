@@ -14,8 +14,10 @@ const ClosingSection = () => {
           </p>
         </div>
         <div className="shrink-0 flex flex-col gap-3">
-          <Button className="rounded-full" size="xl">
-            Request Access <ArrowRight className="ml-2 h-4 w-4" />
+          <Button className="rounded-full" size="xl" asChild>
+            <a href="/product">
+              View the Product <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
           <Button variant="outline" className="rounded-full" size="xl">
             Schedule a Conversation
