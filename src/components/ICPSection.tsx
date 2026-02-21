@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const institutionalCriteria = [
   "Manage €1M+ in invested financial assets",
   "Actively optimize treasury allocation",
@@ -14,48 +16,52 @@ const digitalCriteria = [
 
 const ICPSection = () => {
   return (
-    <section id="icp" className="py-24 lg:py-32 border-t border-border">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="mb-16">
-          <p className="text-xs font-medium text-muted-foreground mb-3 tracking-widest uppercase">Target Profile</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Who It's For</h2>
-          <p className="text-muted-foreground max-w-2xl leading-relaxed">
-            Collateral Core serves two distinct but converging segments of the credit market.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Institutional */}
-          <div>
-            <h3 className="text-xl font-bold mb-2">Institutional Treasury Teams</h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              Mid-market companies managing active investment portfolios and structured collateral requirements.
+    <section id="icp" className="section-cool py-32 lg:py-44">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <ScrollReveal>
+          <div className="mb-20">
+            <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Target Profile</p>
+            <h2 className="mb-5 max-w-3xl">Who It's For</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
+              Collateral Core serves two distinct but converging segments of the credit market.
             </p>
-            <div className="space-y-0">
-              {institutionalCriteria.map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-3 border-b border-border">
-                  <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                  <p className="text-sm text-muted-foreground">{item}</p>
-                </div>
-              ))}
-            </div>
           </div>
+        </ScrollReveal>
 
-          {/* Digital-Native */}
-          <div>
-            <h3 className="text-xl font-bold mb-2">Digital-Native Capital Participants</h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              Protocols, DAOs, and on-chain capital allocators requiring rigorous credit infrastructure.
-            </p>
-            <div className="space-y-0">
-              {digitalCriteria.map((item, i) => (
-                <div key={i} className="flex items-start gap-4 py-3 border-b border-border">
-                  <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                  <p className="text-sm text-muted-foreground">{item}</p>
-                </div>
-              ))}
+        <div className="grid lg:grid-cols-2 gap-8">
+          <ScrollReveal delay={0.1}>
+            <div className="card-brutal rounded-3xl bg-card p-8 lg:p-10 h-full">
+              <h3 className="text-2xl font-extrabold mb-3">Institutional Treasury Teams</h3>
+              <p className="text-sm text-muted-foreground mb-8">
+                Mid-market companies managing active investment portfolios and structured collateral requirements.
+              </p>
+              <div className="space-y-0">
+                {institutionalCriteria.map((item, i) => (
+                  <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-0">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+                    <p className="text-sm font-medium text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.2}>
+            <div className="card-brutal rounded-3xl bg-card p-8 lg:p-10 h-full">
+              <h3 className="text-2xl font-extrabold mb-3">Digital-Native Capital Participants</h3>
+              <p className="text-sm text-muted-foreground mb-8">
+                Protocols, DAOs, and on-chain capital allocators requiring rigorous credit infrastructure.
+              </p>
+              <div className="space-y-0">
+                {digitalCriteria.map((item, i) => (
+                  <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-0">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+                    <p className="text-sm font-medium text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

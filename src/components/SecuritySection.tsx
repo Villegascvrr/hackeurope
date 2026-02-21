@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const principles = [
   { number: "01", title: "Overcollateralization", desc: "Security margins built into every structured guarantee." },
   { number: "02", title: "Contractual clarity", desc: "Transparent legal structure and defined execution rules." },
@@ -7,31 +9,35 @@ const principles = [
 
 const SecuritySection = () => {
   return (
-    <section id="governance" className="py-24 lg:py-32 border-t border-border">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section id="governance" className="py-32 lg:py-44">
+      <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <p className="text-xs font-medium text-muted-foreground mb-3 tracking-widest uppercase">Risk Framework</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Institutional Governance Framework</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Built on transparency, clear rules, and institutional-grade risk management.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div>
+              <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Risk Framework</p>
+              <h2 className="mb-5">Institutional Governance Framework</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Built on transparency, clear rules, and institutional-grade risk management.
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div>
-            <div className="space-y-0">
-              {principles.map((item) => (
-                <div key={item.number} className="flex items-start gap-6 py-5 border-b border-border">
-                  <span className="text-sm text-muted-foreground font-medium w-6 shrink-0">{item.number}</span>
+            {principles.map((item, i) => (
+              <ScrollReveal key={item.number} delay={i * 0.1}>
+                <div className="flex items-start gap-6 py-6 border-b-2 border-border last:border-0">
+                  <span className="text-sm text-primary font-extrabold w-8 shrink-0">{item.number}</span>
                   <div>
-                    <h3 className="font-semibold mb-1">{item.title}</h3>
+                    <h3 className="text-lg font-extrabold mb-1">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-6">Risk management is embedded at the infrastructure layer.</p>
-            <p className="text-sm text-muted-foreground mt-3">Risk management principles apply consistently across traditional and on-chain credit issuance.</p>
+              </ScrollReveal>
+            ))}
+            <ScrollReveal delay={0.4}>
+              <p className="text-sm text-muted-foreground mt-8">Risk management is embedded at the infrastructure layer.</p>
+              <p className="text-sm text-muted-foreground mt-3">Risk management principles apply consistently across traditional and on-chain credit issuance.</p>
+            </ScrollReveal>
           </div>
         </div>
       </div>
