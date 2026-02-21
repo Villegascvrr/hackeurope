@@ -11,7 +11,7 @@ const ProblemSection = () => {
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Temporary Deposits Create Capital Friction
+            Temporary Guarantees Create Structural Capital Friction
           </h2>
           <p className="text-muted-foreground">
             Every deposit requirement creates a capital efficiency problem.
@@ -29,7 +29,7 @@ const ProblemSection = () => {
         </div>
 
         <div className="border-t border-[hsl(var(--dark-border))] mt-16 pt-8">
-          <p className="text-sm">Cash should be used for productive purposes — not locked in temporary deposits.</p>
+          <p className="text-sm font-medium">Deposits are mandatory. Inefficiency is not.</p>
         </div>
       </div>
     </section>

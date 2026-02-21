@@ -1,18 +1,10 @@
 import { ArrowRight } from "lucide-react";
 
 const steps = [
-  { label: "Portfolio", sublabel: "Asset Intake" },
-  { label: "Risk Engine", sublabel: "Volatility & Drawdown" },
-  { label: "Decision Engine", sublabel: "Dynamic Ratios" },
-  { label: "Structured Guarantee", sublabel: "Output" },
-];
-
-const features = [
-  "Portfolio intake and classification",
-  "Volatility, drawdown, and liquidity analysis",
-  "Dynamic collateral ratio computation",
-  "Automated margin threshold monitoring",
-  "Structured release mechanisms",
+  { label: "Portfolio Intake", sublabel: "Classification, valuation, liquidity profiling" },
+  { label: "Risk Engine", sublabel: "Volatility modeling, drawdown analysis, correlation" },
+  { label: "Decision Engine", sublabel: "Dynamic overcollateralization & margin thresholds" },
+  { label: "Structured Guarantee", sublabel: "Asset-backed deployment without liquidation" },
 ];
 
 const SolutionSection = () => {
@@ -29,14 +21,13 @@ const SolutionSection = () => {
           </p>
         </div>
 
-        {/* Flow Diagram */}
-        <div className="rounded-xl border border-border p-8 mb-16 overflow-x-auto">
+        <div className="rounded-xl border border-border p-8 overflow-x-auto">
           <div className="flex items-center justify-center gap-2 sm:gap-4 min-w-[600px] mx-auto">
             {steps.map((step, i) => (
               <div key={step.label} className="flex items-center gap-2 sm:gap-4">
-                <div className="rounded-lg border border-border p-4 sm:p-6 text-center min-w-[120px] sm:min-w-[140px] bg-accent/50">
+                <div className="rounded-lg border border-border p-4 sm:p-6 text-center min-w-[140px] sm:min-w-[160px] bg-accent/50">
                   <p className="text-sm sm:text-base font-semibold">{step.label}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{step.sublabel}</p>
+                  <p className="text-[11px] text-muted-foreground mt-1 leading-snug">{step.sublabel}</p>
                 </div>
                 {i < steps.length - 1 && (
                   <ArrowRight className="h-4 w-4 text-primary shrink-0" />
@@ -44,16 +35,6 @@ const SolutionSection = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Feature List */}
-        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4 max-w-3xl mx-auto">
-          {features.map((f) => (
-            <div key={f} className="flex items-start gap-3 py-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0" />
-              <span className="text-sm text-muted-foreground">{f}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>

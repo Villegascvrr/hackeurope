@@ -11,21 +11,21 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-          Use invested capital as structured collateral for temporary guarantees — powered by a real-time risk engine.
+          Structured, real-time asset-backed guarantees powered by a multi-agent collateral risk engine.
         </p>
 
-        <Button className="rounded-full" size="xl">
-          Request a conversation <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-
-        <div className="flex items-center gap-3 mt-12 text-sm text-muted-foreground">
-          <span>Built for</span>
-          {["CFOs", "Finance Leaders", "Growth Companies"].map((label) => (
-            <span key={label} className="border border-border rounded-full px-4 py-1.5 text-foreground text-sm">
-              {label}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-4">
+          <Button className="rounded-full" size="xl">
+            View Technical Architecture <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <Button variant="outline" className="rounded-full" size="xl">
+            Request Conversation
+          </Button>
         </div>
+
+        <p className="mt-8 text-sm text-muted-foreground">
+          Built for mid-market treasury teams managing €1M+ in investable assets.
+        </p>
       </div>
     </section>
   );
