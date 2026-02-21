@@ -51,9 +51,6 @@ const ICPSection = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-16 pt-8">
-          
-        </div>
       </div>
     </section>);
 
