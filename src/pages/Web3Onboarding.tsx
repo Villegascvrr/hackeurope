@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Check, Wallet, Globe } from "lucide-react";
+import { useWeb3Credit } from "@/contexts/Web3CreditContext";
 
 const STEPS = [
   "Connect Wallet",
@@ -15,11 +15,21 @@ const STEPS = [
 
 const Web3Onboarding = () => {
   const navigate = useNavigate();
+  const { setProfile } = useWeb3Credit();
   const [currentStep, setCurrentStep] = useState(0);
   const [walletConnected, setWalletConnected] = useState(false);
   const [githubUrl, setGithubUrl] = useState("");
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [underwritingComplete, setUnderwritingComplete] = useState(false);
+
+  // Simulated profile data
+  const walletAddress = "7xKXtR4p...9f3Qp";
+  const walletAge = 14;
+  const transactionVolume = 182400;
+  const hasLiquidations = false;
+  const trustScore = 742;
+  const maxLoan = 25000;
+  const interestRate = "4.2% APR";
 
   const next = () => {
     setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
@@ -36,7 +46,20 @@ const Web3Onboarding = () => {
 
   const runUnderwriting = () => {
     next();
-    setTimeout(() => setUnderwritingComplete(true), 2500);
+    setTimeout(() => {
+      setProfile({
+        walletAddress,
+        walletAge,
+        transactionVolume,
+        hasLiquidations,
+        githubUrl,
+        linkedinUrl,
+        trustScore,
+        maxLoan,
+        interestRate,
+      });
+      setUnderwritingComplete(true);
+    }, 2500);
   };
 
   return (
@@ -126,9 +149,9 @@ const Web3Onboarding = () => {
                 <>
                   <div className="space-y-3">
                     {[
-                      { label: "Wallet Address", value: "7xKXt...9f3Qp" },
-                      { label: "Wallet Age", value: "14 months" },
-                      { label: "Total Transaction Volume", value: "$182,400" },
+                      { label: "Wallet Address", value: walletAddress },
+                      { label: "Wallet Age", value: `${walletAge} months` },
+                      { label: "Total Transaction Volume", value: `$${transactionVolume.toLocaleString()}` },
                     ].map((item) => (
                       <div
                         key={item.label}
@@ -271,10 +294,10 @@ const Web3Onboarding = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { label: "Trust Score", value: "742 / 1000", highlight: true },
+                  { label: "Trust Score", value: `${trustScore} / 1000`, highlight: true },
                   { label: "Risk Category", value: "Low" },
-                  { label: "Max Eligible Loan", value: "$25,000 USDC" },
-                  { label: "Suggested Interest Rate", value: "4.2% APR" },
+                  { label: "Max Eligible Loan", value: `$${maxLoan.toLocaleString()} USDC` },
+                  { label: "Suggested Interest Rate", value: interestRate },
                 ].map((metric) => (
                   <div
                     key={metric.label}
@@ -303,10 +326,10 @@ const Web3Onboarding = () => {
 
               <div className="flex items-center gap-3 pt-2">
                 <Button
-                  onClick={() => navigate("/product/web3-credit")}
+                  onClick={() => navigate("/product/web3-credit/dashboard")}
                   className="h-11 px-8"
                 >
-                  Go to Web3 Credit Dashboard <ArrowRight className="ml-2 w-4 h-4" />
+                  Go to Credit Dashboard <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
                 <Button
                   variant="ghost"

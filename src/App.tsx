@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Web3CreditProvider } from "@/contexts/Web3CreditContext";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -33,32 +34,35 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/product/new-guarantee" element={<NewGuarantee />} />
-          <Route path="/product/new-guarantee/select-assets" element={<SelectAssets />} />
-          <Route path="/product/new-guarantee/risk-assessment" element={<RiskAssessment />} />
-          <Route path="/product/new-guarantee/structured-output" element={<StructuredOutput />} />
-          <Route path="/product/monitoring" element={<Monitoring />} />
-          <Route path="/product/simulation" element={<SimulationLab />} />
-          <Route path="/product/portfolio" element={<Portfolio />} />
-          <Route path="/product/risk-analysis" element={<RiskAnalysis />} />
-          <Route path="/product/active-guarantees" element={<ActiveGuarantees />} />
-          <Route path="/product/settings" element={<SettingsPage />} />
-          <Route path="/product/web3-credit" element={<Web3CreditPage />} />
-          <Route path="/product/web3-credit/onboarding" element={<Web3Onboarding />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <Web3CreditProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/product/new-guarantee" element={<NewGuarantee />} />
+            <Route path="/product/new-guarantee/select-assets" element={<SelectAssets />} />
+            <Route path="/product/new-guarantee/risk-assessment" element={<RiskAssessment />} />
+            <Route path="/product/new-guarantee/structured-output" element={<StructuredOutput />} />
+            <Route path="/product/monitoring" element={<Monitoring />} />
+            <Route path="/product/simulation" element={<SimulationLab />} />
+            <Route path="/product/portfolio" element={<Portfolio />} />
+            <Route path="/product/risk-analysis" element={<RiskAnalysis />} />
+            <Route path="/product/active-guarantees" element={<ActiveGuarantees />} />
+            <Route path="/product/settings" element={<SettingsPage />} />
+            <Route path="/product/web3-credit" element={<Web3CreditPage />} />
+            <Route path="/product/web3-credit/dashboard" element={<Web3CreditPage />} />
+            <Route path="/product/web3-credit/onboarding" element={<Web3Onboarding />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </Web3CreditProvider>
   </QueryClientProvider>
 );
 
