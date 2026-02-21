@@ -14,6 +14,7 @@ import {
   ArrowDownRight,
   Menu,
   X,
+  FlaskConical,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,6 +35,7 @@ const navItems = [
   { label: "Risk Analysis", icon: BarChart3 },
   { label: "Active Guarantees", icon: Shield },
   { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
+  { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
   { label: "Settings", icon: Settings },
 ];
 
