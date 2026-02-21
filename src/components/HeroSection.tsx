@@ -11,20 +11,20 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed">
-          Structured, real-time asset-backed guarantees powered by a multi-agent collateral risk engine.
+          Structured, real-time asset-backed guarantees powered by a quantitative collateral risk engine.
         </p>
 
         <div className="flex flex-wrap gap-4">
           <Button className="rounded-full" size="xl">
-            View the Product <ArrowRight className="ml-2 h-4 w-4" />
+            Request Access <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button variant="outline" className="rounded-full" size="xl">
-            View Technical Architecture
+            View Architecture
           </Button>
         </div>
 
         <p className="mt-8 text-sm text-muted-foreground">
-          Built for mid-market treasury teams managing €1M+ in investable assets.
+          Designed for mid-market treasury teams managing active investment portfolios.
         </p>
       </div>
     </section>

@@ -1,10 +1,10 @@
 import { ArrowRight } from "lucide-react";
 
 const steps = [
-  { label: "Portfolio Intake", sublabel: "Classification, valuation, liquidity profiling" },
-  { label: "Risk Engine", sublabel: "Volatility modeling, drawdown analysis, correlation" },
-  { label: "Decision Engine", sublabel: "Dynamic overcollateralization & margin thresholds" },
-  { label: "Structured Guarantee", sublabel: "Asset-backed deployment without liquidation" },
+  { label: "Portfolio Intake", sublabel: "Asset classification, liquidity profiling, and valuation feeds" },
+  { label: "Risk Engine", sublabel: "Volatility modeling, drawdown analysis, correlation matrices" },
+  { label: "Decision Engine", sublabel: "Dynamic overcollateralization logic and threshold enforcement" },
+  { label: "Structured Guarantee", sublabel: "Asset-backed capital deployment without liquidation" },
 ];
 
 const SolutionSection = () => {
@@ -17,7 +17,7 @@ const SolutionSection = () => {
             A Real-Time Collateral Infrastructure Layer
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            An end-to-end system that transforms invested assets into structured, risk-managed collateral for temporary guarantees.
+            Collateral Core transforms invested assets into structured, risk-managed guarantees through automated quantitative assessment and rule-based execution.
           </p>
         </div>
 
