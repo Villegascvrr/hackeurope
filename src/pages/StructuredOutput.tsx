@@ -339,7 +339,10 @@ const StructuredOutput = () => {
                       Download Term Sheet
                     </Button>
                   </div>
-                  <Button className="h-10 px-6 text-sm bg-foreground text-background hover:bg-[hsl(220,20%,20%)] font-medium">
+                  <Button
+                    className="h-10 px-6 text-sm bg-foreground text-background hover:bg-foreground/90 font-medium"
+                    onClick={() => navigate("/product")}
+                  >
                     Confirm & Issue Guarantee
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
