@@ -56,7 +56,7 @@ const Onboarding = () => {
   const handleFrameworkSelect = (framework: string) => {
     setSelectedFramework(framework);
     if (framework === "onchain") {
-      navigate("/product/web3-credit");
+      navigate("/product/web3-credit/onboarding");
     } else {
       next();
     }

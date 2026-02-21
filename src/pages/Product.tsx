@@ -48,7 +48,7 @@ const institutionalNav = [
 ];
 
 const digitalCreditNav = [
-  { label: "Web3 Credit", icon: BarChart3, path: "/product/web3-credit" },
+  { label: "Web3 Credit", icon: BarChart3, path: "/product/web3-credit/onboarding" },
 ];
 
 const bottomNav = [
@@ -438,7 +438,7 @@ const Product = () => {
                       </p>
                     </div>
                     <Button
-                      onClick={() => navigate("/product/web3-credit")}
+                      onClick={() => navigate("/product/web3-credit/onboarding")}
                       variant="ghost"
                       className="mt-4 self-start text-sm font-medium text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] px-0"
                     >
