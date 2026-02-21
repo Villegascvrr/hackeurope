@@ -14,9 +14,14 @@ const HeroSection = () => {
           Structured, real-time asset-backed guarantees powered by a multi-agent collateral risk engine.
         </p>
 
-        <Button className="rounded-full" size="xl">
-          Ver Product <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+        <div className="flex flex-wrap gap-4">
+          <Button className="rounded-full" size="xl">
+            View the Product <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <Button variant="outline" className="rounded-full" size="xl">
+            View Technical Architecture
+          </Button>
+        </div>
 
         <p className="mt-8 text-sm text-muted-foreground">
           Built for mid-market treasury teams managing €1M+ in investable assets.
