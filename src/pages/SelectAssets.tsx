@@ -363,7 +363,10 @@ const SelectAssets = () => {
                     <ArrowLeft className="h-4 w-4 mr-2" />
                     Back to Deposit Details
                   </Button>
-                  <Button className="h-10 px-6 text-sm bg-foreground text-background hover:bg-[hsl(220,20%,20%)] font-medium">
+                  <Button
+                    onClick={() => navigate("/product/new-guarantee/risk-assessment")}
+                    className="h-10 px-6 text-sm bg-foreground text-background hover:bg-[hsl(220,20%,20%)] font-medium"
+                  >
                     Run Risk Assessment
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
