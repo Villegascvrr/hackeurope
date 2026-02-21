@@ -1,25 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+import MeshGradientHero from "./MeshGradientHero";
 
 const ease = [0.25, 0.1, 0.25, 1.0] as [number, number, number, number];
 
 const HeroSection = () => {
   const prefersReducedMotion = useReducedMotion();
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   return (
     <section ref={sectionRef} className="pt-36 pb-28 lg:pt-52 lg:pb-40 relative overflow-hidden">
-      {/* Parallax decorative element */}
-      {!prefersReducedMotion && (
-        <motion.div
-          className="absolute -right-20 top-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none"
-          style={{ y: parallaxY }}
-        />
-      )}
+      <MeshGradientHero />
 
       <div className="container mx-auto px-6 max-w-6xl relative">
         <motion.div
