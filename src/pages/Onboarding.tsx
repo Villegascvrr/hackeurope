@@ -161,6 +161,14 @@ const Onboarding = () => {
               <p className="text-xs text-muted-foreground leading-relaxed">
                 Both frameworks operate under the same risk architecture and monitoring principles.
               </p>
+
+              <Button
+                variant="ghost"
+                className="h-11 text-muted-foreground"
+                onClick={() => navigate("/")}
+              >
+                ← Back to Home
+              </Button>
             </div>
           )}
 
