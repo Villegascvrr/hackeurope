@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const steps = [
   { label: "Portfolio Intake", sublabel: "Asset classification, liquidity profiling, and valuation feeds" },
@@ -24,17 +23,17 @@ const SolutionSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerReveal className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" stagger={0.1}>
           {steps.map((step, i) => (
-            <ScrollReveal key={step.label} delay={i * 0.1}>
-              <div className="card-brutal rounded-3xl bg-card p-6 h-full flex flex-col">
+            <StaggerItem key={step.label} index={i}>
+              <div className="card-brutal card-hover rounded-3xl bg-card p-6 h-full flex flex-col">
                 <span className="text-xs font-bold text-primary mb-4 tracking-wider">0{i + 1}</span>
                 <p className="text-lg font-extrabold mb-2">{step.label}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mt-auto">{step.sublabel}</p>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerReveal>
       </div>
     </section>
   );

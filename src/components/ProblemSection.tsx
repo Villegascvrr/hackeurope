@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const stats = [
   { value: "€20k–€300k+", label: "Locked per deposit" },
@@ -22,16 +22,16 @@ const ProblemSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
+        <StaggerReveal className="grid sm:grid-cols-2 gap-x-12 gap-y-8" stagger={0.1}>
           {stats.map((item, i) => (
-            <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-brutal-sm rounded-3xl bg-card p-8">
+            <StaggerItem key={i} index={i}>
+              <div className="card-brutal-sm card-hover rounded-3xl bg-card p-8">
                 <p className="text-4xl sm:text-5xl font-extrabold text-primary mb-3">{item.value}</p>
                 <p className="font-semibold text-foreground">{item.label}</p>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerReveal>
 
         <ScrollReveal delay={0.4}>
           <div className="mt-20 pt-8 border-t-2 border-foreground/10">
