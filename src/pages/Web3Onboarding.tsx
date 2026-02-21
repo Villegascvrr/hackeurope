@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,9 +15,16 @@ const STEPS = [
 
 const Web3Onboarding = () => {
   const navigate = useNavigate();
-  const { setProfile } = useWeb3Credit();
+  const { profile, setProfile } = useWeb3Credit();
   const [currentStep, setCurrentStep] = useState(0);
   const [walletConnected, setWalletConnected] = useState(false);
+
+  // If profile already exists, redirect to dashboard
+  useEffect(() => {
+    if (profile) {
+      navigate("/product", { replace: true });
+    }
+  }, [profile, navigate]);
   const [githubUrl, setGithubUrl] = useState("");
   const [linkedinUrl, setLinkedinUrl] = useState("");
   const [underwritingComplete, setUnderwritingComplete] = useState(false);
