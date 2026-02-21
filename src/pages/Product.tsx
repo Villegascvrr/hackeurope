@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   FilePlus,
@@ -115,6 +116,7 @@ const statusColor = (status: string) => {
 };
 
 const Product = () => {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
@@ -197,7 +199,10 @@ const Product = () => {
                   Portfolio overview and risk monitoring
                 </p>
               </div>
-              <Button className="rounded-md bg-[hsl(220,20%,10%)] text-white hover:bg-[hsl(220,20%,20%)] text-sm font-medium h-9 px-4">
+              <Button
+                onClick={() => navigate("/product/new-guarantee")}
+                className="rounded-md bg-[hsl(220,20%,10%)] text-white hover:bg-[hsl(220,20%,20%)] text-sm font-medium h-9 px-4"
+              >
                 <FilePlus className="h-4 w-4 mr-2" />
                 Create New Guarantee Request
               </Button>
