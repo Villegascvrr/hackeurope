@@ -10,6 +10,7 @@ import SelectAssets from "./pages/SelectAssets";
 import RiskAssessment from "./pages/RiskAssessment";
 import StructuredOutput from "./pages/StructuredOutput";
 import Monitoring from "./pages/Monitoring";
+import SimulationLab from "./pages/SimulationLab";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/product/new-guarantee/risk-assessment" element={<RiskAssessment />} />
           <Route path="/product/new-guarantee/structured-output" element={<StructuredOutput />} />
           <Route path="/product/monitoring" element={<Monitoring />} />
+          <Route path="/product/simulation" element={<SimulationLab />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
