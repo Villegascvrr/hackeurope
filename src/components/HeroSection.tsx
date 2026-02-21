@@ -16,8 +16,8 @@ const HeroSection = () => {
 
         <div className="flex flex-wrap gap-4">
           <Button className="rounded-full" size="xl" asChild>
-            <a href="/product">
-              View the Product <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="/onboarding">
+              Start Structuring <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
           <Button variant="outline" className="rounded-full" size="xl">

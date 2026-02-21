@@ -14,7 +14,7 @@ const Navbar = () => {
             <a href="#governance" className="hover:text-foreground transition-colors">Governance</a>
           </div>
           <Button className="rounded-full" size="sm" asChild>
-            <a href="/product">View the Product</a>
+            <a href="/onboarding">Get Started</a>
           </Button>
         </div>
       </nav>
