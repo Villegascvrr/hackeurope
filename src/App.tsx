@@ -11,6 +11,7 @@ import RiskAssessment from "./pages/RiskAssessment";
 import StructuredOutput from "./pages/StructuredOutput";
 import Monitoring from "./pages/Monitoring";
 import SimulationLab from "./pages/SimulationLab";
+import Onboarding from "./pages/Onboarding";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/product" element={<Product />} />
           <Route path="/product/new-guarantee" element={<NewGuarantee />} />
           <Route path="/product/new-guarantee/select-assets" element={<SelectAssets />} />
