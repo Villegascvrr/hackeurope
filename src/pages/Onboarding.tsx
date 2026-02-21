@@ -40,8 +40,14 @@ const Onboarding = () => {
   const [financeContact, setFinanceContact] = useState("");
   const navigate = useNavigate();
 
-  const next = () => setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
-  const prev = () => setCurrentStep((s) => Math.max(s - 1, 0));
+  const next = () => {
+    setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
+    window.scrollTo(0, 0);
+  };
+  const prev = () => {
+    setCurrentStep((s) => Math.max(s - 1, 0));
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
