@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const capabilities = [
   "Deposit pattern modeling",
   "Capital allocation optimization",
@@ -7,27 +9,31 @@ const capabilities = [
 
 const CapitalEfficiencySection = () => {
   return (
-    <section className="section-dark py-24 lg:py-32">
-      <div className="container mx-auto px-6 max-w-5xl">
+    <section className="section-dark py-32 lg:py-44">
+      <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <p className="text-xs font-medium text-muted-foreground mb-3 tracking-widest uppercase">Capital Layer</p>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Beyond Guarantees — Treasury Optimization
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              Collateral Core is designed as long-term financial infrastructure, not a single-use product.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div>
+              <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Capital Layer</p>
+              <h2 className="mb-5">
+                Beyond Guarantees — Treasury Optimization
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Collateral Core is designed as long-term financial infrastructure, not a single-use product.
+              </p>
+            </div>
+          </ScrollReveal>
 
-          <div className="space-y-0">
-            {capabilities.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 py-4 border-b border-[hsl(var(--dark-border))]">
-                <span className="text-xs text-muted-foreground font-medium mt-0.5 w-6 shrink-0">0{i + 1}</span>
-                <p className="text-sm leading-relaxed">{item}</p>
-              </div>
-            ))}
-          </div>
+          <ScrollReveal delay={0.15}>
+            <div className="space-y-0">
+              {capabilities.map((item, i) => (
+                <div key={i} className="flex items-start gap-5 py-5 border-b-2 border-[hsl(var(--dark-border))] last:border-0">
+                  <span className="text-sm text-primary font-extrabold w-8 shrink-0">0{i + 1}</span>
+                  <p className="text-base font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ScrollReveal";
+
 const stats = [
   { value: "€20k–€300k+", label: "Locked per deposit" },
   { value: "3–6 months", label: "Typical lock period" },
@@ -7,29 +9,35 @@ const stats = [
 
 const ProblemSection = () => {
   return (
-    <section id="problem" className="section-dark py-24 lg:py-32">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Temporary Guarantees Create Structural Capital Friction
-          </h2>
-          <p className="text-muted-foreground">
-            Every deposit requirement creates a capital efficiency problem.
-          </p>
-        </div>
+    <section id="problem" className="section-cool py-32 lg:py-44">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <ScrollReveal>
+          <div className="mb-20">
+            <h2 className="mb-5 max-w-3xl">
+              Temporary Guarantees Create Structural Capital Friction
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl">
+              Every deposit requirement creates a capital efficiency problem.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 gap-x-16 gap-y-12">
+        <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
           {stats.map((item, i) => (
-            <div key={i} className="border-b border-[hsl(var(--dark-border))] pb-8">
-              <p className="text-3xl sm:text-4xl font-bold text-primary mb-2">{item.value}</p>
-              <p className="font-semibold">{item.label}</p>
-            </div>
+            <ScrollReveal key={i} delay={i * 0.1}>
+              <div className="card-brutal-sm rounded-3xl bg-card p-8">
+                <p className="text-4xl sm:text-5xl font-extrabold text-primary mb-3">{item.value}</p>
+                <p className="font-semibold text-foreground">{item.label}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="border-t border-[hsl(var(--dark-border))] mt-16 pt-8">
-          <p className="text-sm font-medium">Mandatory deposits should not distort capital allocation decisions.</p>
-        </div>
+        <ScrollReveal delay={0.4}>
+          <div className="mt-20 pt-8 border-t-2 border-foreground/10">
+            <p className="text-sm font-medium text-muted-foreground">Mandatory deposits should not distort capital allocation decisions.</p>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
