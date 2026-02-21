@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const tiers = [
@@ -69,17 +67,6 @@ const RiskFrameworkSection = () => {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.3}>
-          <div className="mt-10 flex justify-center">
-            <Link
-              to="/risk-model"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
-            >
-              View Full Risk Model
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
