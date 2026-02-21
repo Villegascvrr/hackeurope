@@ -13,7 +13,9 @@ import {
   Menu,
   X,
   ArrowRight,
+  ArrowLeft,
   Check,
+  FlaskConical,
 } from "lucide-react";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
@@ -38,13 +40,14 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Dashboard", icon: LayoutDashboard },
-  { label: "New Guarantee", icon: FilePlus, active: true },
-  { label: "Portfolio", icon: Briefcase },
-  { label: "Risk Analysis", icon: BarChart3 },
-  { label: "Active Guarantees", icon: Shield },
-  { label: "Monitoring", icon: Activity },
-  { label: "Settings", icon: Settings },
+  { label: "Dashboard", icon: LayoutDashboard, path: "/product" },
+  { label: "New Guarantee", icon: FilePlus, active: true, path: "/product/new-guarantee" },
+  { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
+  { label: "Risk Analysis", icon: BarChart3, path: "/product/risk-analysis" },
+  { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
+  { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
+  { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
+  { label: "Settings", icon: Settings, path: "/product/settings" },
 ];
 
 const steps = [
@@ -353,6 +356,15 @@ const NewGuarantee = () => {
                 <div className="flex items-center justify-between pt-2">
                   <Button
                     variant="outline"
+                    onClick={() => navigate("/product")}
+                    className="h-10 px-5 text-sm border-border text-muted-foreground hover:text-foreground"
+                  >
+                    <ArrowLeft className="h-4 w-4 mr-2" />
+                    Back to Dashboard
+                  </Button>
+                  <div className="flex items-center gap-3">
+                  <Button
+                    variant="outline"
                     className="h-10 px-5 text-sm border-border text-muted-foreground hover:text-foreground"
                   >
                     Save Draft
@@ -364,6 +376,7 @@ const NewGuarantee = () => {
                     Continue to Asset Selection
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
+                  </div>
                 </div>
               </div>
 

@@ -15,6 +15,7 @@ import {
   ArrowRight,
   ArrowLeft,
   Check,
+  FlaskConical,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -31,13 +32,14 @@ import {
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Dashboard", icon: LayoutDashboard },
-  { label: "New Guarantee", icon: FilePlus, active: true },
-  { label: "Portfolio", icon: Briefcase },
-  { label: "Risk Analysis", icon: BarChart3 },
-  { label: "Active Guarantees", icon: Shield },
-  { label: "Monitoring", icon: Activity },
-  { label: "Settings", icon: Settings },
+  { label: "Dashboard", icon: LayoutDashboard, path: "/product" },
+  { label: "New Guarantee", icon: FilePlus, active: true, path: "/product/new-guarantee" },
+  { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
+  { label: "Risk Analysis", icon: BarChart3, path: "/product/risk-analysis" },
+  { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
+  { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
+  { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
+  { label: "Settings", icon: Settings, path: "/product/settings" },
 ];
 
 const steps = [
