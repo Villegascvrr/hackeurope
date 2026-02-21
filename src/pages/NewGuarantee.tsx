@@ -100,9 +100,7 @@ const NewGuarantee = () => {
           {navItems.map((item) => (
             <button
               key={item.label}
-              onClick={() => {
-                if (item.label === "Dashboard") navigate("/product");
-              }}
+              onClick={() => item.path && navigate(item.path)}
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
                 item.active
                   ? "bg-[hsl(220,20%,95%)] text-foreground font-medium"
