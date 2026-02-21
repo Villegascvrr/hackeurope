@@ -357,7 +357,10 @@ const NewGuarantee = () => {
                   >
                     Save Draft
                   </Button>
-                  <Button className="h-10 px-6 text-sm bg-foreground text-background hover:bg-[hsl(220,20%,20%)] font-medium">
+                  <Button
+                    onClick={() => navigate("/product/new-guarantee/select-assets")}
+                    className="h-10 px-6 text-sm bg-foreground text-background hover:bg-[hsl(220,20%,20%)] font-medium"
+                  >
                     Continue to Asset Selection
                     <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
