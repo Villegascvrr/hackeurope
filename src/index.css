@@ -142,16 +142,50 @@
   .btn-brutal {
     box-shadow: var(--shadow-brutal-sm);
     border: 2px solid hsl(var(--foreground));
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.2s cubic-bezier(0.25, 0.1, 0.25, 1),
+                background-color 0.3s ease;
   }
 
   .btn-brutal:hover {
-    transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px) scale(1.02);
     box-shadow: 6px 6px 0px hsl(var(--foreground));
   }
 
   .btn-brutal:active {
-    transform: translate(1px, 1px);
+    transform: translate(1px, 1px) scale(0.98);
     box-shadow: 2px 2px 0px hsl(var(--foreground));
+  }
+
+  /* Card hover elevation */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -8px hsl(var(--foreground) / 0.12),
+                var(--shadow-brutal);
+  }
+
+  .card-brutal.card-hover:hover {
+    transform: translate(-2px, -4px);
+    box-shadow: 6px 8px 0px hsl(var(--foreground));
+  }
+
+  .card-brutal-sm.card-hover:hover {
+    transform: translate(-1px, -3px);
+    box-shadow: 5px 6px 0px hsl(var(--foreground));
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

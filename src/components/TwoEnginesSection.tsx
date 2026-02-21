@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const leftFeatures = [
   "Portfolio intake",
@@ -13,6 +13,19 @@ const rightFeatures = [
   "Identity signal integration",
   "Real-time credit score issuance",
 ];
+
+const FeatureList = ({ features }: { features: string[] }) => (
+  <StaggerReveal className="space-y-0" stagger={0.08}>
+    {features.map((item, i) => (
+      <StaggerItem key={i} index={i}>
+        <div className="flex items-start gap-4 py-4 border-b border-border last:border-0">
+          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+          <p className="text-sm font-medium text-foreground">{item}</p>
+        </div>
+      </StaggerItem>
+    ))}
+  </StaggerReveal>
+);
 
 const TwoEnginesSection = () => {
   return (
@@ -29,36 +42,22 @@ const TwoEnginesSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <ScrollReveal delay={0.1}>
-            <div className="rounded-3xl bg-background p-8 lg:p-10 border-2 border-primary-foreground/20 h-full">
+            <div className="rounded-3xl bg-background p-8 lg:p-10 border-2 border-primary-foreground/20 h-full card-hover">
               <h3 className="text-2xl font-extrabold text-foreground mb-3">Asset-Backed Underwriting</h3>
               <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
                 Quantitative collateral modeling for mid-market treasury operations.
               </p>
-              <div className="space-y-0">
-                {leftFeatures.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 py-4 border-b border-border last:border-0">
-                    <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                    <p className="text-sm font-medium text-foreground">{item}</p>
-                  </div>
-                ))}
-              </div>
+              <FeatureList features={leftFeatures} />
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="rounded-3xl bg-background p-8 lg:p-10 border-2 border-primary-foreground/20 h-full">
+            <div className="rounded-3xl bg-background p-8 lg:p-10 border-2 border-primary-foreground/20 h-full card-hover">
               <h3 className="text-2xl font-extrabold text-foreground mb-3">AI On-Chain Credit (TrustScore.sol)</h3>
               <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
                 Wallet-level credit scoring powered by behavioral and identity analysis.
               </p>
-              <div className="space-y-0">
-                {rightFeatures.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 py-4 border-b border-border last:border-0">
-                    <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                    <p className="text-sm font-medium text-foreground">{item}</p>
-                  </div>
-                ))}
-              </div>
+              <FeatureList features={rightFeatures} />
             </div>
           </ScrollReveal>
         </div>

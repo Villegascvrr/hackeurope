@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const capabilities = [
   "Deposit pattern modeling",
@@ -15,25 +15,25 @@ const CapitalEfficiencySection = () => {
           <ScrollReveal>
             <div>
               <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Capital Layer</p>
-              <h2 className="mb-5">
-                Beyond Guarantees — Treasury Optimization
-              </h2>
+              <h2 className="mb-5">Beyond Guarantees — Treasury Optimization</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Collateral Core is designed as long-term financial infrastructure, not a single-use product.
               </p>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.15}>
+          <StaggerReveal stagger={0.1}>
             <div className="space-y-0">
               {capabilities.map((item, i) => (
-                <div key={i} className="flex items-start gap-5 py-5 border-b-2 border-[hsl(var(--dark-border))] last:border-0">
-                  <span className="text-sm text-primary font-extrabold w-8 shrink-0">0{i + 1}</span>
-                  <p className="text-base font-medium">{item}</p>
-                </div>
+                <StaggerItem key={i} index={i}>
+                  <div className="flex items-start gap-5 py-5 border-b-2 border-[hsl(var(--dark-border))] last:border-0">
+                    <span className="text-sm text-primary font-extrabold w-8 shrink-0">0{i + 1}</span>
+                    <p className="text-base font-medium">{item}</p>
+                  </div>
+                </StaggerItem>
               ))}
             </div>
-          </ScrollReveal>
+          </StaggerReveal>
         </div>
       </div>
     </section>

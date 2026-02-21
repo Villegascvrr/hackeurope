@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const institutionalCriteria = [
   "Manage €1M+ in invested financial assets",
@@ -13,6 +13,19 @@ const digitalCriteria = [
   "Operate in digital-native lending or capital markets",
   "Seek institutional-grade risk assessment for on-chain activity",
 ];
+
+const CriteriaList = ({ items }: { items: string[] }) => (
+  <StaggerReveal className="space-y-0" stagger={0.08}>
+    {items.map((item, i) => (
+      <StaggerItem key={i} index={i}>
+        <div className="flex items-start gap-4 py-3 border-b border-border last:border-0">
+          <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
+          <p className="text-sm font-medium text-muted-foreground">{item}</p>
+        </div>
+      </StaggerItem>
+    ))}
+  </StaggerReveal>
+);
 
 const ICPSection = () => {
   return (
@@ -30,36 +43,22 @@ const ICPSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           <ScrollReveal delay={0.1}>
-            <div className="card-brutal rounded-3xl bg-card p-8 lg:p-10 h-full">
+            <div className="card-brutal card-hover rounded-3xl bg-card p-8 lg:p-10 h-full">
               <h3 className="text-2xl font-extrabold mb-3">Institutional Treasury Teams</h3>
               <p className="text-sm text-muted-foreground mb-8">
                 Mid-market companies managing active investment portfolios and structured collateral requirements.
               </p>
-              <div className="space-y-0">
-                {institutionalCriteria.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-0">
-                    <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                    <p className="text-sm font-medium text-muted-foreground">{item}</p>
-                  </div>
-                ))}
-              </div>
+              <CriteriaList items={institutionalCriteria} />
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <div className="card-brutal rounded-3xl bg-card p-8 lg:p-10 h-full">
+            <div className="card-brutal card-hover rounded-3xl bg-card p-8 lg:p-10 h-full">
               <h3 className="text-2xl font-extrabold mb-3">Digital-Native Capital Participants</h3>
               <p className="text-sm text-muted-foreground mb-8">
                 Protocols, DAOs, and on-chain capital allocators requiring rigorous credit infrastructure.
               </p>
-              <div className="space-y-0">
-                {digitalCriteria.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4 py-3 border-b border-border last:border-0">
-                    <div className="h-2 w-2 rounded-full bg-primary mt-1.5 shrink-0" />
-                    <p className="text-sm font-medium text-muted-foreground">{item}</p>
-                  </div>
-                ))}
-              </div>
+              <CriteriaList items={digitalCriteria} />
             </div>
           </ScrollReveal>
         </div>

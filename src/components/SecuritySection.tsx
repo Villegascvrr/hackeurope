@@ -1,4 +1,4 @@
-import ScrollReveal from "@/components/ScrollReveal";
+import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const principles = [
   { number: "01", title: "Overcollateralization", desc: "Security margins built into every structured guarantee." },
@@ -23,17 +23,19 @@ const SecuritySection = () => {
           </ScrollReveal>
 
           <div>
-            {principles.map((item, i) => (
-              <ScrollReveal key={item.number} delay={i * 0.1}>
-                <div className="flex items-start gap-6 py-6 border-b-2 border-border last:border-0">
-                  <span className="text-sm text-primary font-extrabold w-8 shrink-0">{item.number}</span>
-                  <div>
-                    <h3 className="text-lg font-extrabold mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+            <StaggerReveal stagger={0.1}>
+              {principles.map((item, i) => (
+                <StaggerItem key={item.number} index={i}>
+                  <div className="flex items-start gap-6 py-6 border-b-2 border-border last:border-0">
+                    <span className="text-sm text-primary font-extrabold w-8 shrink-0">{item.number}</span>
+                    <div>
+                      <h3 className="text-lg font-extrabold mb-1">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
+                </StaggerItem>
+              ))}
+            </StaggerReveal>
             <ScrollReveal delay={0.4}>
               <p className="text-sm text-muted-foreground mt-8">Risk management is embedded at the infrastructure layer.</p>
               <p className="text-sm text-muted-foreground mt-3">Risk management principles apply consistently across traditional and on-chain credit issuance.</p>
