@@ -28,12 +28,12 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 const navItems = [
-  { label: "Dashboard", icon: LayoutDashboard, active: true },
-  { label: "New Guarantee", icon: FilePlus },
+  { label: "Dashboard", icon: LayoutDashboard, active: true, path: "/product" },
+  { label: "New Guarantee", icon: FilePlus, path: "/product/new-guarantee" },
   { label: "Portfolio", icon: Briefcase },
   { label: "Risk Analysis", icon: BarChart3 },
   { label: "Active Guarantees", icon: Shield },
-  { label: "Monitoring", icon: Activity },
+  { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
   { label: "Settings", icon: Settings },
 ];
 
@@ -137,6 +137,7 @@ const Product = () => {
           {navItems.map((item) => (
             <button
               key={item.label}
+              onClick={() => item.path && navigate(item.path)}
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
                 item.active
                   ? "bg-[hsl(220,20%,95%)] text-[hsl(220,20%,10%)] font-medium"
