@@ -314,6 +314,7 @@ const RiskAssessment = () => {
                   </Button>
                   <Button
                     disabled={agent3Status === "processing"}
+                    onClick={() => navigate("/product/new-guarantee/structured-output")}
                     className="h-10 px-6 text-sm bg-foreground text-background hover:bg-[hsl(220,20%,20%)] font-medium disabled:opacity-50"
                   >
                     Generate Structured Guarantee
