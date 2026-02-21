@@ -125,6 +125,13 @@ const Onboarding = () => {
                 >
                   View Platform Overview
                 </Button>
+                <Button
+                  variant="ghost"
+                  className="h-11 text-muted-foreground"
+                  onClick={() => navigate("/")}
+                >
+                  ← Back to Home
+                </Button>
               </div>
             </div>
           )}
