@@ -2,12 +2,9 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
-import TwoEnginesSection from "@/components/TwoEnginesSection";
-import UnifiedArchitectureSection from "@/components/UnifiedArchitectureSection";
-import ICPSection from "@/components/ICPSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 import SecuritySection from "@/components/SecuritySection";
-import CapitalEfficiencySection from "@/components/CapitalEfficiencySection";
-import RiskFrameworkSection from "@/components/RiskFrameworkSection";
+import TechStackSection from "@/components/TechStackSection";
 import VisionSection from "@/components/VisionSection";
 import ClosingSection from "@/components/ClosingSection";
 import Footer from "@/components/Footer";
@@ -19,12 +16,9 @@ const Index = () => {
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
-      <TwoEnginesSection />
-      <UnifiedArchitectureSection />
-      <ICPSection />
+      <HowItWorksSection />
       <SecuritySection />
-      <CapitalEfficiencySection />
-      <RiskFrameworkSection />
+      <TechStackSection />
       <VisionSection />
       <ClosingSection />
       <Footer />

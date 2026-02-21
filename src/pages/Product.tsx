@@ -1,33 +1,20 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
-  FilePlus,
-  Briefcase,
-  BarChart3,
-  Shield,
   Activity,
   Settings,
   Bell,
   ChevronDown,
-  ArrowUpRight,
-  ArrowDownRight,
   Menu,
   X,
-  FlaskConical,
   Home,
   LogOut,
+  Cpu,
+  Globe,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
@@ -37,105 +24,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const institutionalNav = [
-  { label: "Dashboard", icon: LayoutDashboard, active: true, path: "/product" },
-  { label: "New Guarantee", icon: FilePlus, path: "/product/new-guarantee" },
-  { label: "Portfolio", icon: Briefcase, path: "/product/portfolio" },
-  { label: "Risk Analysis", icon: BarChart3, path: "/product/risk-analysis" },
-  { label: "Active Guarantees", icon: Shield, path: "/product/active-guarantees" },
+const mainNav = [
+  { label: "Dashboard", icon: LayoutDashboard, path: "/product" },
+  { label: "Credit Engine", icon: Cpu, path: "/product/web3-credit" },
   { label: "Monitoring", icon: Activity, path: "/product/monitoring" },
-  { label: "Simulation Lab", icon: FlaskConical, path: "/product/simulation" },
-];
-
-const digitalCreditNav = [
-  { label: "Web3 Credit", icon: BarChart3, path: "/product/web3-credit" },
 ];
 
 const bottomNav = [
   { label: "Settings", icon: Settings, path: "/product/settings" },
 ];
 
-const overviewCards = [
-  {
-    title: "Total Portfolio Value",
-    value: "€124,850,000",
-    change: "+2.4%",
-    positive: true,
-  },
-  {
-    title: "Eligible Collateral Value",
-    value: "€98,320,000",
-    change: "+1.1%",
-    positive: true,
-  },
-  {
-    title: "Active Guarantees",
-    value: "17",
-    change: "+3",
-    positive: true,
-  },
-  {
-    title: "Risk Status",
-    value: "Low",
-    change: "Stable",
-    positive: true,
-    isStatus: true,
-  },
-];
-
-const recentActivity = [
-  {
-    asset: "EU Gov Bond 2028",
-    riskCategory: "Low",
-    ltv: "62%",
-    guaranteeAmount: "€4,200,000",
-    status: "Active",
-  },
-  {
-    asset: "Corp Bond A-Rated",
-    riskCategory: "Medium",
-    ltv: "71%",
-    guaranteeAmount: "€2,800,000",
-    status: "Pending",
-  },
-  {
-    asset: "Structured Note Q2",
-    riskCategory: "Low",
-    ltv: "55%",
-    guaranteeAmount: "€6,100,000",
-    status: "Active",
-  },
-  {
-    asset: "Real Estate Fund III",
-    riskCategory: "Elevated",
-    ltv: "78%",
-    guaranteeAmount: "€3,500,000",
-    status: "Under Review",
-  },
-  {
-    asset: "Green Bond 2030",
-    riskCategory: "Low",
-    ltv: "58%",
-    guaranteeAmount: "€5,000,000",
-    status: "Active",
-  },
-];
-
-const riskCategoryColor = (cat: string) => {
-  if (cat === "Low") return "bg-emerald-50 text-emerald-700 border-emerald-200";
-  if (cat === "Medium") return "bg-amber-50 text-amber-700 border-amber-200";
-  return "bg-red-50 text-red-700 border-red-200";
-};
-
-const statusColor = (status: string) => {
-  if (status === "Active") return "bg-emerald-50 text-emerald-700 border-emerald-200";
-  if (status === "Pending") return "bg-amber-50 text-amber-700 border-amber-200";
-  return "bg-slate-100 text-slate-600 border-slate-200";
-};
-
 const Product = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="min-h-screen bg-[hsl(220,20%,98%)] flex">
@@ -152,33 +56,15 @@ const Product = () => {
         </div>
 
         <nav className="flex-1 py-3 px-3 space-y-0.5">
-          {institutionalNav.map((item) => (
+          {mainNav.map((item) => (
             <button
               key={item.label}
-              onClick={() => item.path && navigate(item.path)}
+              onClick={() => navigate(item.path)}
               className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
-                item.active
+                isActive(item.path)
                   ? "bg-[hsl(220,20%,95%)] text-[hsl(220,20%,10%)] font-medium"
                   : "text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)]"
               }`}
-            >
-              <item.icon className="h-4 w-4" />
-              {item.label}
-            </button>
-          ))}
-
-          {/* Section divider */}
-          <div className="pt-4 pb-2 px-3">
-            <p className="text-[10px] font-semibold text-[hsl(220,10%,46%)] uppercase tracking-widest">
-              Digital Credit Infrastructure
-            </p>
-          </div>
-
-          {digitalCreditNav.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => item.path && navigate(item.path)}
-              className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)] transition-colors"
             >
               <item.icon className="h-4 w-4" />
               {item.label}
@@ -190,7 +76,7 @@ const Product = () => {
           {bottomNav.map((item) => (
             <button
               key={item.label}
-              onClick={() => item.path && navigate(item.path)}
+              onClick={() => navigate(item.path)}
               className="w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] hover:text-[hsl(220,20%,10%)] transition-colors"
             >
               <item.icon className="h-4 w-4" />
@@ -229,18 +115,15 @@ const Product = () => {
               {sidebarOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
             <div className="h-5 w-px bg-[hsl(220,13%,91%)]" />
-            <span className="text-sm text-[hsl(220,10%,46%)]">
-              Current Portfolio Value
-            </span>
-            <span className="text-sm font-semibold text-[hsl(220,20%,10%)]">
-              €124,850,000
-            </span>
+            <div className="flex items-center gap-2">
+              <Globe className="h-3.5 w-3.5 text-[hsl(245,72%,57%)]" />
+              <span className="text-xs font-medium text-[hsl(245,72%,57%)]">Solana Devnet</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3">
             <button className="relative p-2 rounded-md text-[hsl(220,10%,46%)] hover:bg-[hsl(220,20%,96%)] transition-colors">
               <Bell className="h-4 w-4" />
-              <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-red-500" />
             </button>
             <div className="h-5 w-px bg-[hsl(220,13%,91%)]" />
             <DropdownMenu>
@@ -271,227 +154,84 @@ const Product = () => {
         {/* Content */}
         <main className="flex-1 p-6 overflow-auto">
           <div className="max-w-[1200px] mx-auto space-y-6">
+            {/* Banner */}
+            <div className="rounded-lg border border-[hsl(245,40%,90%)] bg-[hsl(245,40%,97%)] p-4">
+              <p className="text-sm font-medium text-[hsl(245,58%,51%)]">AI-Generated Credit Profile</p>
+              <p className="text-xs text-[hsl(220,10%,46%)] mt-0.5">
+                This score is generated from on-chain wallet behavior and identity signals.
+              </p>
+            </div>
+
             {/* Page header */}
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-xl font-semibold text-[hsl(220,20%,10%)]">
-                  Dashboard
-                </h1>
-                <p className="text-sm text-[hsl(220,10%,46%)] mt-0.5">
-                  Portfolio overview and risk monitoring
-                </p>
-              </div>
-              <Button
-                onClick={() => navigate("/product/new-guarantee")}
-                className="rounded-md bg-[hsl(220,20%,10%)] text-white hover:bg-[hsl(220,20%,20%)] text-sm font-medium h-9 px-4"
-              >
-                <FilePlus className="h-4 w-4 mr-2" />
-                Create New Guarantee Request
-              </Button>
+            <div>
+              <h1 className="text-xl font-semibold text-[hsl(220,20%,10%)]">
+                Solana Credit Engine
+              </h1>
+              <p className="text-sm text-[hsl(220,10%,46%)] mt-0.5">
+                On-chain wallet underwriting and trust scoring
+              </p>
             </div>
 
             {/* Overview Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {overviewCards.map((card) => (
-                <Card
-                  key={card.title}
-                  className="border-[hsl(220,13%,91%)] shadow-none bg-white"
+              <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+                <CardHeader className="pb-2 pt-4 px-4">
+                  <CardTitle className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider">
+                    Wallets Analyzed
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-4 pb-4 pt-0">
+                  <span className="text-2xl font-semibold text-[hsl(220,20%,10%)]">247</span>
+                </CardContent>
+              </Card>
+              <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+                <CardHeader className="pb-2 pt-4 px-4">
+                  <CardTitle className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider">
+                    Avg Trust Score
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-4 pb-4 pt-0">
+                  <span className="text-2xl font-semibold text-[hsl(245,58%,51%)]">682</span>
+                </CardContent>
+              </Card>
+              <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+                <CardHeader className="pb-2 pt-4 px-4">
+                  <CardTitle className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider">
+                    Credit Decisions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-4 pb-4 pt-0">
+                  <span className="text-2xl font-semibold text-[hsl(220,20%,10%)]">189</span>
+                </CardContent>
+              </Card>
+              <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+                <CardHeader className="pb-2 pt-4 px-4">
+                  <CardTitle className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider">
+                    Risk Status
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="px-4 pb-4 pt-0">
+                  <span className="text-2xl font-semibold text-emerald-600">Healthy</span>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Quick action */}
+            <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
+              <CardContent className="p-6">
+                <h3 className="text-base font-semibold text-[hsl(220,20%,10%)] mb-1">
+                  Credit Engine
+                </h3>
+                <p className="text-sm text-[hsl(220,10%,46%)] leading-relaxed mb-4">
+                  Connect a Solana wallet to generate an AI-powered trust score and credit decision.
+                </p>
+                <Button
+                  onClick={() => navigate("/product/web3-credit")}
+                  className="rounded-md bg-[hsl(220,20%,10%)] text-white hover:bg-[hsl(220,20%,20%)] text-sm font-medium h-9 px-4"
                 >
-                  <CardHeader className="pb-2 pt-4 px-4">
-                    <CardTitle className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider">
-                      {card.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="px-4 pb-4 pt-0">
-                    <div className="flex items-end justify-between">
-                      <span
-                        className={`text-2xl font-semibold ${
-                          card.isStatus
-                            ? "text-emerald-600"
-                            : "text-[hsl(220,20%,10%)]"
-                        }`}
-                      >
-                        {card.value}
-                      </span>
-                      <span
-                        className={`flex items-center gap-0.5 text-xs font-medium ${
-                          card.positive
-                            ? "text-emerald-600"
-                            : "text-red-600"
-                        }`}
-                      >
-                        {card.positive ? (
-                          <ArrowUpRight className="h-3 w-3" />
-                        ) : (
-                          <ArrowDownRight className="h-3 w-3" />
-                        )}
-                        {card.change}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Recent Activity Table */}
-            <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
-              <CardHeader className="px-5 py-4 border-b border-[hsl(220,13%,91%)]">
-                <CardTitle className="text-sm font-semibold text-[hsl(220,20%,10%)]">
-                  Recent Activity
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="hover:bg-transparent border-b border-[hsl(220,13%,91%)]">
-                      <TableHead className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider h-10">
-                        Asset
-                      </TableHead>
-                      <TableHead className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider h-10">
-                        Risk Category
-                      </TableHead>
-                      <TableHead className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider h-10">
-                        Current LTV
-                      </TableHead>
-                      <TableHead className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider h-10">
-                        Guarantee Amount
-                      </TableHead>
-                      <TableHead className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider h-10">
-                        Status
-                      </TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {recentActivity.map((row) => (
-                      <TableRow
-                        key={row.asset}
-                        className="border-b border-[hsl(220,13%,93%)] hover:bg-[hsl(220,20%,98%)]"
-                      >
-                        <TableCell className="text-sm font-medium text-[hsl(220,20%,10%)]">
-                          {row.asset}
-                        </TableCell>
-                        <TableCell>
-                          <Badge
-                            variant="outline"
-                            className={`text-xs font-medium ${riskCategoryColor(row.riskCategory)}`}
-                          >
-                            {row.riskCategory}
-                          </Badge>
-                        </TableCell>
-                        <TableCell className="text-sm text-[hsl(220,10%,46%)]">
-                          {row.ltv}
-                        </TableCell>
-                        <TableCell className="text-sm text-[hsl(220,20%,10%)]">
-                          {row.guaranteeAmount}
-                        </TableCell>
-                        <TableCell>
-                          <Badge
-                            variant="outline"
-                            className={`text-xs font-medium ${statusColor(row.status)}`}
-                          >
-                            {row.status}
-                          </Badge>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-
-            {/* Credit Infrastructure Modules */}
-            <div className="space-y-4">
-              <h2 className="text-sm font-semibold text-[hsl(220,20%,10%)]">
-                Credit Infrastructure Modules
-              </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {/* Card 1: Asset-Backed Guarantees */}
-                <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
-                  <CardContent className="p-6 flex flex-col justify-between h-full">
-                    <div>
-                      <h3 className="text-base font-semibold text-[hsl(220,20%,10%)] mb-1">
-                        Asset-Backed Guarantees
-                      </h3>
-                      <p className="text-sm text-[hsl(220,10%,46%)] leading-relaxed">
-                        Structured collateral underwriting for institutional treasury.
-                      </p>
-                    </div>
-                    <Button
-                      onClick={() => navigate("/product/new-guarantee")}
-                      variant="ghost"
-                      className="mt-4 self-start text-sm font-medium text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] px-0"
-                    >
-                      Enter Module <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
-                    </Button>
-                  </CardContent>
-                </Card>
-
-                {/* Card 2: AI On-Chain Credit */}
-                <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
-                  <CardContent className="p-6 flex flex-col justify-between h-full">
-                    <div>
-                      <h3 className="text-base font-semibold text-[hsl(220,20%,10%)] mb-1">
-                        AI On-Chain Credit (TrustScore.sol)
-                      </h3>
-                      <p className="text-sm text-[hsl(220,10%,46%)] leading-relaxed">
-                        Real-time Solana wallet credit underwriting powered by AI.
-                      </p>
-                    </div>
-                    <Button
-                      onClick={() => navigate("/product/web3-credit")}
-                      variant="ghost"
-                      className="mt-4 self-start text-sm font-medium text-[hsl(220,20%,10%)] hover:bg-[hsl(220,20%,96%)] px-0"
-                    >
-                      Enter Module <ArrowUpRight className="ml-1 h-3.5 w-3.5" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {/* Risk Engine Summary */}
-            <Card className="border-[hsl(220,13%,91%)] shadow-none bg-white">
-              <CardHeader className="px-5 py-4 border-b border-[hsl(220,13%,91%)]">
-                <CardTitle className="text-sm font-semibold text-[hsl(220,20%,10%)]">
-                  Quantitative Risk Snapshot
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-5">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                  <div>
-                    <p className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider mb-1">
-                      Avg Portfolio Volatility
-                    </p>
-                    <p className="text-2xl font-semibold text-[hsl(220,20%,10%)]">
-                      4.2%
-                    </p>
-                    <p className="text-xs text-[hsl(220,10%,46%)] mt-0.5">
-                      30-day rolling
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider mb-1">
-                      Highest Drawdown Asset
-                    </p>
-                    <p className="text-2xl font-semibold text-[hsl(220,20%,10%)]">
-                      Real Estate Fund III
-                    </p>
-                    <p className="text-xs text-red-600 mt-0.5">
-                      -8.3% max drawdown
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-medium text-[hsl(220,10%,46%)] uppercase tracking-wider mb-1">
-                      Aggregate Collateral Ratio
-                    </p>
-                    <p className="text-2xl font-semibold text-emerald-600">
-                      142%
-                    </p>
-                    <p className="text-xs text-[hsl(220,10%,46%)] mt-0.5">
-                      Above 130% threshold
-                    </p>
-                  </div>
-                </div>
+                  <Cpu className="h-4 w-4 mr-2" />
+                  Launch Underwriting
+                </Button>
               </CardContent>
             </Card>
           </div>

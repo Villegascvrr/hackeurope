@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-lg font-extrabold">Collateral Core</span>
           <p className="text-sm text-muted-foreground">
-            Financial infrastructure for structured, asset-backed guarantees.
+            AI credit infrastructure for Solana wallets.
           </p>
         </div>
       </ScrollReveal>

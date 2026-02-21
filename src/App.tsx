@@ -15,16 +15,8 @@ const ScrollToTop = () => {
 };
 import Index from "./pages/Index";
 import Product from "./pages/Product";
-import NewGuarantee from "./pages/NewGuarantee";
-import SelectAssets from "./pages/SelectAssets";
-import RiskAssessment from "./pages/RiskAssessment";
-import StructuredOutput from "./pages/StructuredOutput";
 import Monitoring from "./pages/Monitoring";
-import SimulationLab from "./pages/SimulationLab";
 import Onboarding from "./pages/Onboarding";
-import Portfolio from "./pages/Portfolio";
-import RiskAnalysis from "./pages/RiskAnalysis";
-import ActiveGuarantees from "./pages/ActiveGuarantees";
 import SettingsPage from "./pages/SettingsPage";
 import Web3CreditPage from "./pages/Web3CreditPage";
 import Web3Onboarding from "./pages/Web3Onboarding";
@@ -44,20 +36,11 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/product" element={<Product />} />
-            <Route path="/product/new-guarantee" element={<NewGuarantee />} />
-            <Route path="/product/new-guarantee/select-assets" element={<SelectAssets />} />
-            <Route path="/product/new-guarantee/risk-assessment" element={<RiskAssessment />} />
-            <Route path="/product/new-guarantee/structured-output" element={<StructuredOutput />} />
             <Route path="/product/monitoring" element={<Monitoring />} />
-            <Route path="/product/simulation" element={<SimulationLab />} />
-            <Route path="/product/portfolio" element={<Portfolio />} />
-            <Route path="/product/risk-analysis" element={<RiskAnalysis />} />
-            <Route path="/product/active-guarantees" element={<ActiveGuarantees />} />
             <Route path="/product/settings" element={<SettingsPage />} />
             <Route path="/product/web3-credit" element={<Web3CreditPage />} />
             <Route path="/product/web3-credit/dashboard" element={<Web3CreditPage />} />
             <Route path="/product/web3-credit/onboarding" element={<Web3Onboarding />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

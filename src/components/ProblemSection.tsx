@@ -1,10 +1,10 @@
 import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const stats = [
-  { value: "€20k–€300k+", label: "Locked per deposit" },
-  { value: "3–6 months", label: "Typical lock period" },
-  { value: "2–4 weeks", label: "Traditional bank approval" },
-  { value: "0%", label: "Return on immobilized capital" },
+  { value: "0", label: "On-chain credit protocols for Solana wallets" },
+  { value: "No Score", label: "Wallet behavior has no credit translation" },
+  { value: "Manual", label: "Underwriting is subjective and opaque" },
+  { value: "0%", label: "Identity signals unused in lending decisions" },
 ];
 
 const ProblemSection = () => {
@@ -14,10 +14,10 @@ const ProblemSection = () => {
         <ScrollReveal>
           <div className="mb-20">
             <h2 className="mb-5 max-w-3xl">
-              Temporary Guarantees Create Structural Capital Friction
+              On-Chain Activity Has No Credit Layer
             </h2>
             <p className="text-muted-foreground text-lg max-w-xl">
-              Every deposit requirement creates a capital efficiency problem.
+              Wallets transact billions in volume but have zero standardized creditworthiness signal.
             </p>
           </div>
         </ScrollReveal>
@@ -35,7 +35,7 @@ const ProblemSection = () => {
 
         <ScrollReveal delay={0.4}>
           <div className="mt-20 pt-8 border-t-2 border-foreground/10">
-            <p className="text-sm font-medium text-muted-foreground">Mandatory deposits should not distort capital allocation decisions.</p>
+            <p className="text-sm font-medium text-muted-foreground">On-chain behavior should be a first-class credit signal.</p>
           </div>
         </ScrollReveal>
       </div>

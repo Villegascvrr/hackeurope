@@ -1,10 +1,10 @@
 import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollReveal";
 
 const principles = [
-  { number: "01", title: "Overcollateralization", desc: "Security margins built into every structured guarantee." },
-  { number: "02", title: "Contractual clarity", desc: "Transparent legal structure and defined execution rules." },
-  { number: "03", title: "No speculation", desc: "Assets are pledged, not traded. No leverage amplification." },
-  { number: "04", title: "Regulatory alignment", desc: "Designed within established financial regulatory frameworks." },
+  { number: "01", title: "On-chain verification", desc: "All credit signals derived from verifiable wallet activity on Solana." },
+  { number: "02", title: "Transparent scoring", desc: "Trust Scores are deterministic and explainable — no black-box decisions." },
+  { number: "03", title: "No custody risk", desc: "We read wallet data. We never hold, move, or control user funds." },
+  { number: "04", title: "Privacy-first identity", desc: "Identity signals are optional and user-consented. No KYC requirement." },
 ];
 
 const SecuritySection = () => {
@@ -14,10 +14,10 @@ const SecuritySection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <ScrollReveal>
             <div>
-              <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Risk Framework</p>
-              <h2 className="mb-5">Institutional Governance Framework</h2>
+              <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">Trust Model</p>
+              <h2 className="mb-5">Protocol-Level Security</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Built on transparency, clear rules, and institutional-grade risk management.
+                Built on transparency, verifiability, and non-custodial architecture.
               </p>
             </div>
           </ScrollReveal>
@@ -36,10 +36,6 @@ const SecuritySection = () => {
                 </StaggerItem>
               ))}
             </StaggerReveal>
-            <ScrollReveal delay={0.4}>
-              <p className="text-sm text-muted-foreground mt-8">Risk management is embedded at the infrastructure layer.</p>
-              <p className="text-sm text-muted-foreground mt-3">Risk management principles apply consistently across traditional and on-chain credit issuance.</p>
-            </ScrollReveal>
           </div>
         </div>
       </div>
