@@ -15,10 +15,7 @@ const ClosingSection = () => {
         </div>
         <div className="shrink-0 flex flex-col gap-3">
           <Button className="rounded-full" size="xl">
-            Request Early Access <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button variant="outline" size="xl" className="rounded-full border-[hsl(var(--dark-border))] hover:bg-[hsl(var(--dark-border))]">
-            View Architecture
+            Ver Product <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
