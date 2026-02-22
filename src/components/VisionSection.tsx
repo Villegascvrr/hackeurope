@@ -15,7 +15,7 @@ const VisionSection = () => {
             </p>
             <div className="card-brutal-primary rounded-3xl bg-accent p-8">
               <p className="text-lg font-extrabold text-accent-foreground leading-relaxed">
-                Collateral Core builds the underwriting layer for on-chain credit on Solana.
+                Pledge Coin builds the underwriting layer for on-chain credit on Solana.
               </p>
             </div>
           </div>

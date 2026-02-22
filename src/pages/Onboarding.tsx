@@ -10,7 +10,7 @@ const Onboarding = () => {
       <div className="w-full max-w-xl space-y-8">
         <div className="space-y-3">
           <h1 className="text-3xl font-semibold text-foreground tracking-tight">
-            Welcome to Collateral Core
+            Welcome to Pledge Coin
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed">
             AI credit infrastructure for Solana wallets. Connect your wallet to generate a trust score and credit decision.

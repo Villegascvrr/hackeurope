@@ -21,15 +21,11 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease }}
         >
-          <h1 className="mb-2 max-w-5xl">The Institutional Credit & Reputation Layer</h1>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease, delay: 0.1 }}
-        >
-          <h1 className="text-muted-foreground max-w-4xl mb-10">for Solana.</h1>
+          <h1 className="mb-10 max-w-4xl leading-[1.1]">
+            The Institutional Credit <br className="hidden md:block" />
+            & Reputation Layer <span className="text-muted-foreground">for </span>
+            <span className="text-blue-600">Solana.</span>
+          </h1>
         </motion.div>
 
         <motion.p
