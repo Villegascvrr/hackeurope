@@ -2,7 +2,7 @@ import ScrollReveal, { StaggerReveal, StaggerItem } from "@/components/ScrollRev
 
 const stats = [
   { value: "0", label: "On-chain credit protocols for Solana wallets" },
-  { value: "No Score", label: "Wallet behavior has no credit translation" },
+  { value: "25%", label: "Capital gains tax loss when selling assets for liquidity" },
   { value: "Manual", label: "Underwriting is subjective and opaque" },
   { value: "0%", label: "Identity signals unused in lending decisions" },
 ];

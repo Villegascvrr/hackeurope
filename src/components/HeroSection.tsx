@@ -11,16 +11,17 @@ const HeroSection = () => {
   const sectionRef = useRef(null);
 
   return (
-    <section ref={sectionRef} className="pt-36 pb-28 lg:pt-52 lg:pb-40 relative overflow-hidden">
+    <section ref={sectionRef} className="pt-32 lg:pt-40 pb-20 relative overflow-hidden">
       <MeshGradientHero />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease }}
         >
-          <h1 className="mb-2 max-w-4xl">AI Credit Infrastructure</h1>
+          <h1 className="mb-2 max-w-5xl">The Institutional Credit & Reputation Layer</h1>
         </motion.div>
 
         <motion.div
@@ -28,16 +29,16 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease, delay: 0.1 }}
         >
-          <h1 className="text-muted-foreground max-w-4xl mb-10">for Solana Wallets.</h1>
+          <h1 className="text-muted-foreground max-w-4xl mb-10">for Solana.</h1>
         </motion.div>
 
         <motion.p
-          className="text-lg sm:text-xl text-muted-foreground max-w-lg mb-12 leading-relaxed"
+          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease, delay: 0.2 }}
         >
-          Real-time on-chain behavior analysis and identity signals to generate dynamic trust scores and loan eligibility.
+          Unlock B2B liquidity without selling your assets. AI-powered credit underwriting with zero tax friction and MiCA 2026 compliance.
         </motion.p>
 
         <motion.div

@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Info } from "lucide-react";
 import { useWeb3Credit } from "@/contexts/Web3CreditContext";
 import ProductLayout from "@/components/ProductLayout";
 
 const mockHistory = [
-  { date: "Feb 21", score: 742 },
+  { date: "Feb 22", score: 742 },
   { date: "Feb 14", score: 738 },
   { date: "Feb 07", score: 735 },
   { date: "Jan 31", score: 720 },
@@ -14,9 +14,10 @@ const mockHistory = [
 ];
 
 const riskAlerts = [
-  { message: "Wallet inactivity detected — no transactions in 48h", level: "warn" },
-  { message: "High volatility transaction pattern identified", level: "warn" },
-  { message: "Protocol interaction spike — 3x above baseline", level: "info" },
+  { message: "[WARN] Wallet inactivity detected — no transactions in 48h", level: "warn" },
+  { message: "[WARN] High volatility transaction pattern identified", level: "warn" },
+  { message: "[INFO] Protocol interaction spike — 3x above baseline", level: "info" },
+  { message: "[INFO] Identity attestation multiplier active (1.15x)", level: "info" },
 ];
 
 const Monitoring = () => {
@@ -68,14 +69,13 @@ const Monitoring = () => {
           </Card>
         </div>
 
-        {/* Trust Score History */}
+        {/* On-chain Credit Attestations Chart */}
         <Card className="border-border shadow-none bg-white">
           <CardHeader className="px-5 py-4 border-b border-border">
-            <CardTitle className="text-sm font-semibold text-foreground">Trust Score History</CardTitle>
+            <CardTitle className="text-sm font-semibold text-foreground">On-chain Credit Attestations</CardTitle>
           </CardHeader>
           <CardContent className="p-5">
             <div className="space-y-0">
-              {/* Simple bar chart */}
               <div className="flex items-end gap-3 h-40">
                 {mockHistory.map((point) => {
                   const pct = ((point.score - 650) / 200) * 100;
@@ -109,29 +109,48 @@ const Monitoring = () => {
             {riskAlerts.map((alert) => (
               <div
                 key={alert.message}
-                className={`flex items-start gap-3 p-3 rounded-md border ${
-                  alert.level === "warn"
+                className={`flex items-start gap-3 p-3 rounded-md border ${alert.level === "warn"
                     ? "border-amber-200 bg-amber-50"
                     : "border-border bg-muted/50"
-                }`}
+                  }`}
               >
-                <AlertTriangle className={`h-4 w-4 shrink-0 mt-0.5 ${
-                  alert.level === "warn" ? "text-amber-600" : "text-muted-foreground"
-                }`} />
-                <span className={`text-sm ${
-                  alert.level === "warn" ? "text-amber-800" : "text-muted-foreground"
-                }`}>
+                {alert.level === "warn" ? (
+                  <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600" />
+                ) : (
+                  <Info className="h-4 w-4 shrink-0 mt-0.5 text-muted-foreground" />
+                )}
+                <span className={`text-sm ${alert.level === "warn" ? "text-amber-800" : "text-muted-foreground"}`}>
                   {alert.message}
                 </span>
-                <Badge variant="outline" className={`ml-auto text-[10px] shrink-0 ${
-                  alert.level === "warn"
+                <Badge variant="outline" className={`ml-auto text-[10px] shrink-0 ${alert.level === "warn"
                     ? "bg-amber-50 text-amber-700 border-amber-200"
                     : "bg-muted text-muted-foreground"
-                }`}>
+                  }`}>
                   {alert.level === "warn" ? "Warning" : "Info"}
                 </Badge>
               </div>
             ))}
+          </CardContent>
+        </Card>
+
+        {/* Developer API */}
+        <Card className="border-border shadow-none bg-white">
+          <CardHeader className="px-5 py-4 border-b border-border">
+            <CardTitle className="text-sm font-semibold text-foreground">Developer API</CardTitle>
+          </CardHeader>
+          <CardContent className="p-5">
+            <p className="text-xs text-muted-foreground mb-3">
+              Query this wallet's Trust Score from any external dApp via our REST API:
+            </p>
+            <pre className="text-xs font-mono bg-muted/50 border border-border rounded-md p-4 whitespace-pre-wrap overflow-x-auto">
+              {`curl -X GET \\
+  "https://api.trustscore.sol/v1/score/${profile?.walletAddress ?? "7xKXtR4p...9f3Qp"}" \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json"`}
+            </pre>
+            <p className="text-[10px] text-muted-foreground mt-2">
+              Response includes: trust_score, risk_tier, max_advance_usdc, identity_multiplier, mica_compliant.
+            </p>
           </CardContent>
         </Card>
 

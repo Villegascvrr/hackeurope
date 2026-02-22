@@ -1,14 +1,16 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Cpu, ArrowRight, Check, X as XIcon } from "lucide-react";
+import { Cpu, ArrowRight, Check, X as XIcon, Code } from "lucide-react";
 import { useWeb3Credit } from "@/contexts/Web3CreditContext";
 import ProductLayout from "@/components/ProductLayout";
 
 const RiskSignals = () => {
   const navigate = useNavigate();
   const { profile } = useWeb3Credit();
+  const [showModal, setShowModal] = useState(false);
 
   if (!profile) {
     return (
@@ -43,8 +45,34 @@ const RiskSignals = () => {
   const ageTier = profile.walletAge >= 12 ? "Mature" : profile.walletAge >= 6 ? "Established" : "New";
   const onChainWeight = 65;
   const identityWeight = 35;
-
   const riskTier = profile.trustScore >= 700 ? "Prime" : profile.trustScore >= 500 ? "Medium" : "High Risk";
+
+  // JSON schema the AI analyzed
+  const jsonSchema = {
+    wallet: {
+      address: profile.walletAddress,
+      age_months: profile.walletAge,
+      transaction_volume_usd: profile.transactionVolume,
+      activity_frequency: "4.2 tx/day",
+      defi_protocols: 12,
+      liquidation_events: profile.hasLiquidations ? 1 : 0,
+      asset_diversity: "blue-chip ($SOL, $USDC)",
+    },
+    identity: {
+      github_url: profile.githubUrl || null,
+      github_account_age: "3+ years",
+      commit_frequency: "~120 commits/year",
+      linkedin_verified: !!profile.linkedinUrl,
+    },
+    model_output: {
+      on_chain_weight: `${onChainWeight}%`,
+      identity_weight: `${identityWeight}%`,
+      identity_multiplier: profile.githubUrl ? "1.15x" : "1.0x",
+      composite_trust_score: profile.trustScore,
+      risk_tier: riskTier,
+      max_liquidity_advance_usdc: profile.maxLoan,
+    }
+  };
 
   return (
     <ProductLayout>
@@ -65,6 +93,7 @@ const RiskSignals = () => {
             {[
               { label: "Wallet Age", value: `${profile.walletAge} months`, tier: ageTier, ok: profile.walletAge >= 6 },
               { label: "Transaction Volume", value: `$${profile.transactionVolume.toLocaleString()}`, tier: volumeTier, ok: profile.transactionVolume >= 25000 },
+              { label: "Asset Diversity", value: "Blue-chip assets ($SOL, $USDC)", tier: "Verified", ok: true },
               { label: "DeFi Protocol Interactions", value: "12 protocols", tier: null, ok: true },
               { label: "Liquidation Events", value: profile.hasLiquidations ? "Detected" : "None", tier: null, ok: !profile.hasLiquidations },
               { label: "Activity Frequency", value: "4.2 tx/day avg", tier: null, ok: true },
@@ -73,9 +102,8 @@ const RiskSignals = () => {
                 <span className="text-sm text-muted-foreground">{row.label}</span>
                 <div className="flex items-center gap-3">
                   {row.tier && (
-                    <Badge variant="outline" className={`text-xs font-medium ${
-                      row.ok ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-red-50 text-red-600 border-red-200"
-                    }`}>
+                    <Badge variant="outline" className={`text-xs font-medium ${row.ok ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-red-50 text-red-600 border-red-200"
+                      }`}>
                       {row.tier}
                     </Badge>
                   )}
@@ -121,25 +149,38 @@ const RiskSignals = () => {
 
         {/* Section 3 — AI Model Output */}
         <Card className="border-border shadow-none bg-white">
-          <CardHeader className="px-5 py-4 border-b border-border">
+          <CardHeader className="px-5 py-4 border-b border-border flex flex-row items-center justify-between">
             <CardTitle className="text-sm font-semibold text-foreground">AI Model Output</CardTitle>
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-7 px-3 text-xs gap-1.5"
+              onClick={() => setShowModal(true)}
+            >
+              <Code className="h-3 w-3" />
+              View Data Schema (JSON)
+            </Button>
           </CardHeader>
           <CardContent className="p-0">
             {[
               { label: "On-Chain Weight", value: `${onChainWeight}%` },
               { label: "Identity Weight", value: `${identityWeight}%` },
+              { label: "Identity Attestation Multiplier", value: profile.githubUrl ? "1.15x (GitHub verified)" : "1.0x (no identity)", highlight: !!profile.githubUrl },
               { label: "Composite Trust Score", value: `${profile.trustScore} / 850`, highlight: true },
               { label: "Risk Tier Classification", value: riskTier },
             ].map((row) => (
               <div key={row.label} className="flex items-center justify-between px-5 py-3 border-b border-border last:border-0">
                 <span className="text-sm text-muted-foreground">{row.label}</span>
-                <span className={`text-sm font-medium ${
-                  (row as any).highlight ? "text-primary" : "text-foreground"
-                }`}>
+                <span className={`text-sm font-medium ${(row as any).highlight ? "text-primary" : "text-foreground"}`}>
                   {row.value}
                 </span>
               </div>
             ))}
+            <div className="px-5 py-3 border-t border-border bg-muted/30">
+              <p className="text-xs text-muted-foreground">
+                Identity Attestation (GitHub) applied a <span className="font-semibold text-foreground">1.15x multiplier</span> to the base trust score.
+              </p>
+            </div>
           </CardContent>
         </Card>
 
@@ -152,6 +193,23 @@ const RiskSignals = () => {
           </p>
         </div>
       </div>
+
+      {/* JSON Schema Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={() => setShowModal(false)}>
+          <div className="bg-white border border-border rounded-lg shadow-lg w-full max-w-xl mx-4 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-4 border-b border-border">
+              <h2 className="text-sm font-semibold text-foreground">Risk Data Schema (JSON)</h2>
+              <button onClick={() => setShowModal(false)} className="text-muted-foreground hover:text-foreground text-xs">✕ Close</button>
+            </div>
+            <div className="p-5 overflow-auto max-h-[60vh]">
+              <pre className="text-xs font-mono text-foreground bg-muted/50 rounded-md p-4 whitespace-pre-wrap border border-border">
+                {JSON.stringify(jsonSchema, null, 2)}
+              </pre>
+            </div>
+          </div>
+        </div>
+      )}
     </ProductLayout>
   );
 };

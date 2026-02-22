@@ -4,7 +4,7 @@ const steps = [
   { label: "Wallet Intake", sublabel: "Solana wallet connection, transaction history extraction via Helius API" },
   { label: "Behavioral Engine", sublabel: "Wallet age, volume analysis, liquidation history, and protocol interaction mapping" },
   { label: "Identity Layer", sublabel: "Optional GitHub and LinkedIn verification for trust signal enrichment" },
-  { label: "AI Credit Decision", sublabel: "LLM-powered underwriting generating Trust Score and loan eligibility" },
+  { label: "Programmatic Pignoration", sublabel: "AI-driven underwriting generating Trust Score and securing advances without asset liquidation" },
 ];
 
 const SolutionSection = () => {
@@ -15,10 +15,10 @@ const SolutionSection = () => {
           <div className="mb-20">
             <p className="text-xs font-bold text-primary mb-4 tracking-widest uppercase">The Solution</p>
             <h2 className="mb-5 max-w-3xl">
-              AI-Powered Credit Infrastructure for Solana
+              Programmatic Pignoration Infrastructure
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl">
-              Collateral Core transforms on-chain wallet behavior into structured, AI-driven credit decisions.
+              Execute smart-contract secured advances, unlocking liquidity against digital assets without triggering capital gains events.
             </p>
           </div>
         </ScrollReveal>

@@ -49,26 +49,24 @@ const ProductLayout = ({ children }: ProductLayoutProps) => {
   return (
     <div className="min-h-screen bg-[hsl(220,20%,98%)] flex">
       <aside
-        className={`${
-          sidebarOpen ? "w-60" : "w-0 overflow-hidden"
-        } shrink-0 border-r border-border bg-white transition-all duration-200 flex flex-col`}
+        className={`fixed left-0 top-0 h-screen z-40 ${sidebarOpen ? "w-60" : "w-0"
+          } border-r border-border bg-white transition-all duration-200 flex flex-col overflow-hidden shrink-0`}
       >
-        <div className="h-14 px-5 flex items-center border-b border-border">
+        <div className="h-14 px-5 flex items-center border-b border-border shrink-0">
           <span className="text-foreground font-semibold text-sm tracking-tight">
             TrustScore.sol
           </span>
         </div>
 
-        <nav className="flex-1 py-3 px-3 space-y-0.5">
+        <nav className="flex-1 py-3 px-3 space-y-0.5 overflow-y-auto">
           {mainNav.map((item) => (
             <button
               key={item.label}
               onClick={() => navigate(item.path)}
-              className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
-                isActive(item.path)
-                  ? "bg-[hsl(220,20%,95%)] text-foreground font-medium"
-                  : "text-muted-foreground hover:bg-[hsl(220,20%,96%)] hover:text-foreground"
-              }`}
+              className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${isActive(item.path)
+                ? "bg-[hsl(220,20%,95%)] text-foreground font-medium"
+                : "text-muted-foreground hover:bg-[hsl(220,20%,96%)] hover:text-foreground"
+                }`}
             >
               <item.icon className="h-4 w-4" />
               {item.label}
@@ -81,11 +79,10 @@ const ProductLayout = ({ children }: ProductLayoutProps) => {
             <button
               key={item.label}
               onClick={() => navigate(item.path)}
-              className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
-                isActive(item.path)
-                  ? "bg-[hsl(220,20%,95%)] text-foreground font-medium"
-                  : "text-muted-foreground hover:bg-[hsl(220,20%,96%)] hover:text-foreground"
-              }`}
+              className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${isActive(item.path)
+                ? "bg-[hsl(220,20%,95%)] text-foreground font-medium"
+                : "text-muted-foreground hover:bg-[hsl(220,20%,96%)] hover:text-foreground"
+                }`}
             >
               <item.icon className="h-4 w-4" />
               {item.label}
@@ -111,7 +108,7 @@ const ProductLayout = ({ children }: ProductLayoutProps) => {
         </div>
       </aside>
 
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className={`flex-1 flex flex-col min-w-0 transition-all duration-200 ${sidebarOpen ? "ml-60" : "ml-0"}`}>
         <header className="h-14 bg-white border-b border-border flex items-center justify-between px-5 shrink-0">
           <div className="flex items-center gap-4">
             <button
@@ -157,7 +154,7 @@ const ProductLayout = ({ children }: ProductLayoutProps) => {
           </div>
         </header>
 
-        <main className="flex-1 p-6 overflow-auto">
+        <main className="flex-1 p-6 pt-4 overflow-auto">
           <div className="max-w-[1200px] mx-auto">
             {children}
           </div>
